@@ -7,20 +7,24 @@
   gap: 20px;   
 }
 
-.cards > ul > li {
-  border: 1px solid #cccccc;  
+.cards > ul > li 
+{
+  border: 1px solid #ccc;  
   background-color: var(--background-color);
   border-radius: 8px;         
 
-.cards .cards-card-body {
+.cards .cards-card-body 
+{
   margin: 20px;               
 }
 
-.cards .cards-card-image {
+.cards .cards-card-image 
+{
   line-height: 0;
 }
 
-.cards > ul > li img {
+.cards > ul > li img
+ {
   width: 100%;
   aspect-ratio: 4 / 3;
   object-fit: cover;
