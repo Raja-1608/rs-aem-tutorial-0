@@ -1,19 +1,19 @@
 .cards > ul {
   list-style: none;
-  margin: 0;
-  padding: 0;
+  margin: 0;                 
+  padding: 0;                
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(257px, 1fr));
-  gap: 24px;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); 
+  gap: 20px;   
 }
 
 .cards > ul > li {
-  border: 1px solid #dadada;
+  border: 1px solid #cccccc;  
   background-color: var(--background-color);
-}
+  border-radius: 8px;         
 
 .cards .cards-card-body {
-  margin: 16px;
+  margin: 20px;               
 }
 
 .cards .cards-card-image {
@@ -24,4 +24,6 @@
   width: 100%;
   aspect-ratio: 4 / 3;
   object-fit: cover;
+  border-radius: 6px;         
 }
+
