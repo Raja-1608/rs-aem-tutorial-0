@@ -17,73 +17,85 @@
   margin: 0 auto;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   padding: 12px 16px;
   box-sizing: border-box;
   gap: 32px;
 }
 
-/* Brand (Velu Chits) — FLAT STYLE (no pill, no box) */
-.nav-brand {
+/* ================================
+   BRAND (Velu Chits)
+   ================================ */
+.nav-brand a {
+  font-size: 24px;
   font-weight: 700;
-  font-size: 22px;
+  color: #3b63fb;
+  text-decoration: none;
   white-space: nowrap;
-  color: #2b50ff;       /* highlighted blue */
-  letter-spacing: 0.3px;
 }
 
-/* Container for menu items */
+.nav-brand a:hover {
+  color: #1d3ecf;
+}
+
+/* ================================
+   NAV MENU ITEMS
+   ================================ */
 .nav-sections {
   flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-/* Horizontal layout */
 .nav-sections .default-content-wrapper {
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
-  gap: 24px;
+  gap: 32px;
   margin: 0;
   padding: 0;
 }
 
-/* Remove list bullets */
+/* Remove bullets if list exists */
 .nav-sections ul {
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
-/* Remove default spacing */
+/* Make items appear horizontal */
 .nav-sections .default-content-wrapper > * {
   margin: 0;
 }
 
-/* Menu links — flat style */
+/* MENU LINKS */
 .nav-sections a {
   text-decoration: none;
-  color: #2b50ff;
+  color: #222;
   font-size: 16px;
-  font-weight: 600;
-  padding: 6px 4px;
-  border-radius: 0;     /* remove pill shape */
-  background: none !important; /* ensure no pill */
+  font-weight: 500;
+  padding: 4px 0;
+  transition: color 0.2s ease, border-bottom 0.2s ease;
 }
 
-/* Hover effect (underline only) */
+/* Hover underline effect */
 .nav-sections a:hover,
 .nav-sections a:focus-visible {
-  color: #1a38cc;
-  border-bottom: 2px solid #1a38cc;
+  color: #000;
+  border-bottom: 2px solid #000;
 }
 
-/* Tools area (unused) */
+/* ================================
+   TOOLS (currently unused)
+   ================================ */
 .nav-tools {
   display: flex;
   gap: 12px;
   align-items: center;
 }
 
-/* Hide hamburger entirely */
+/* Hide hamburger menu */
 .nav-hamburger {
   display: none;
 }
