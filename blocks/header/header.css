@@ -1,27 +1,25 @@
-/* Header block wrapper */
+/* Top header wrapper */
 .header {
-  position: relative;
-  z-index: 50;
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
-/* Background area for the header */
+/* Outer container */
 .nav-wrapper {
-  background: transparent;
-  padding: 16px 16px 0;
+  background: #fff;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 10%);
 }
 
-/* Main nav capsule (desktop) */
+/* Main nav element */
 #nav {
-  max-width: 1100px;
+  max-width: 1200px;
   margin: 0 auto;
   display: flex;
   align-items: center;
-  gap: 32px;
-  padding: 10px 24px;
+  padding: 12px 16px;
   box-sizing: border-box;
-  background: #fff;
-  border-radius: 999px;
-  box-shadow: 0 8px 24px rgb(0 0 0 / 12%);
+  gap: 24px;
 }
 
 /* Brand (Velu Chits) */
@@ -31,7 +29,7 @@
   white-space: nowrap;
 }
 
-/* Sections container */
+/* Sections (top-level menu) */
 .nav-sections {
   flex: 1;
 }
@@ -43,11 +41,11 @@
   padding: 0;
 }
 
-/* Desktop menu layout: horizontal items */
+/* Desktop menu layout */
 .nav-sections > .default-content-wrapper > ul {
   display: flex;
   gap: 24px;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
 }
 
@@ -55,7 +53,7 @@
   position: relative;
 }
 
-/* Base link styles */
+/* Links */
 .nav-sections a {
   text-decoration: none;
   color: #222;
@@ -64,10 +62,15 @@
   padding: 4px 0;
 }
 
-/* Hover / focus states */
-.nav-sections a:hover,
-.nav-sections a:focus-visible {
+/* Underline on hover */
+.nav-sections a:hover {
   color: #000;
+}
+
+/* Active-like underline when aria-expanded=true (for drop-downs if used) */
+.nav-sections li[aria-expanded="true"] > a {
+  color: #000;
+  font-weight: 600;
   border-bottom: 2px solid #000;
 }
 
@@ -91,7 +94,7 @@
   padding: 4px;
 }
 
-/* Hamburger icon using span */
+/* Hamburger icon basic look if using span-based icon */
 .nav-hamburger-icon,
 .nav-hamburger-icon::before,
 .nav-hamburger-icon::after {
@@ -118,27 +121,18 @@
   top: 6px;
 }
 
-/* ========== Mobile styles (< 900px) ========== */
+/* Mobile nav: stack sections vertically when open */
 @media (width < 900px) {
-  .nav-wrapper {
-    padding: 0;
-    background: #fff;
-    box-shadow: 0 1px 6px rgb(0 0 0 / 10%);
-  }
-
   #nav {
-    max-width: none;
-    margin: 0;
-    border-radius: 0;
-    box-shadow: none;
     padding: 10px 12px;
   }
 
+  /* Brand + hamburger in one row */
   .nav-brand {
     margin-right: auto;
   }
 
-  /* Mobile dropdown menu */
+  /* Hide desktop menu by default */
   .nav-sections {
     position: absolute;
     inset-inline: 0;
@@ -146,10 +140,9 @@
     background: #fff;
     box-shadow: 0 4px 12px rgb(0 0 0 / 15%);
     display: none;
-    z-index: 40;
   }
 
-  /* Show menu when nav is expanded (controlled by header.js via aria-expanded) */
+  /* Show menu when nav is expanded */
   #nav[aria-expanded="true"] .nav-sections {
     display: block;
   }
@@ -172,7 +165,7 @@
   }
 }
 
-/* ========== Desktop styles (>= 900px) ========== */
+/* Desktop: show full menu, hide hamburger */
 @media (width >= 900px) {
   .nav-hamburger {
     display: none;
