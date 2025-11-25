@@ -22,25 +22,13 @@
   gap: 32px;
 }
 
-/* Brand (Velu Chits) – HIGHLIGHTED */
+/* Brand (Velu Chits) — FLAT STYLE (no pill, no box) */
 .nav-brand {
-  font-weight: 800;
-  font-size: 24px;
-  color: #0057ff;                 /* Bright blue text */
-  letter-spacing: 0.5px;
-  padding: 6px 18px;
-  background: #e8efff;            /* Soft blue pill */
-  border-radius: 14px;
-  box-shadow: 0 3px 6px rgb(0 0 0 / 12%);
+  font-weight: 700;
+  font-size: 22px;
   white-space: nowrap;
-  transition: 0.3s ease;
-}
-
-/* Hover animation for brand */
-.nav-brand:hover {
-  background: #dbe8ff;
-  color: #003ecb;
-  transform: translateY(-2px);
+  color: #2b50ff;       /* highlighted blue */
+  letter-spacing: 0.3px;
 }
 
 /* Container for menu items */
@@ -48,7 +36,7 @@
   flex: 1;
 }
 
-/* Make items horizontal */
+/* Horizontal layout */
 .nav-sections .default-content-wrapper {
   display: flex;
   justify-content: flex-start;
@@ -58,45 +46,44 @@
   padding: 0;
 }
 
-/* Remove bullets */
+/* Remove list bullets */
 .nav-sections ul {
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
-/* Align direct children */
+/* Remove default spacing */
 .nav-sections .default-content-wrapper > * {
   margin: 0;
 }
 
-/* Menu links */
+/* Menu links — flat style */
 .nav-sections a {
   text-decoration: none;
-  color: #222;
+  color: #2b50ff;
   font-size: 16px;
-  font-weight: 500;
-  padding: 6px 12px;
-  border-radius: 12px;
-  transition: 0.25s ease;
+  font-weight: 600;
+  padding: 6px 4px;
+  border-radius: 0;     /* remove pill shape */
+  background: none !important; /* ensure no pill */
 }
 
-/* Hover for menu items */
+/* Hover effect (underline only) */
 .nav-sections a:hover,
 .nav-sections a:focus-visible {
-  background: #f2f5ff;
-  color: #000;
-  box-shadow: 0 2px 4px rgb(0 0 0 / 12%);
+  color: #1a38cc;
+  border-bottom: 2px solid #1a38cc;
 }
 
-/* Tools area */
+/* Tools area (unused) */
 .nav-tools {
   display: flex;
   gap: 12px;
   align-items: center;
 }
 
-/* Hide hamburger for desktop layout */
+/* Hide hamburger entirely */
 .nav-hamburger {
   display: none;
 }
