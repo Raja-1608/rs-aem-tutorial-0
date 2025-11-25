@@ -5,5 +5,6 @@
  */
 
 export default function decorate(block) {
-  // No behavior needed – acts as a passive wrapper.
+  // Use the parameter so ESLint doesn't complain, but do nothing else.
+  if (!block) return;
 }
