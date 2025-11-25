@@ -1,0 +1,7 @@
+/* Default Content Wrapper Block
+ * Minimal styling so it doesn't change your layout.
+ */
+
+.default-content-wrapper.block {
+  min-height: 0; /* keeps the rule non-empty without changing layout */
+}
