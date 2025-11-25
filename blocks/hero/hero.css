@@ -17,10 +17,10 @@
   max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
-  color: #ffffff;
+  color: #fff;
   text-shadow:
-    0 3px 6px rgba(0, 0, 0, 0.55),
-    0 10px 24px rgba(0, 0, 0, 0.7);
+    0 3px 6px rgb(0 0 0 / 55%),
+    0 10px 24px rgb(0 0 0 / 70%);
   position: relative;
   z-index: 1;
 }
@@ -40,16 +40,16 @@
   height: 100%;
 }
 
-/* Optional: subtle gradient at the bottom for extra contrast */
+/* Subtle gradient at the bottom for extra contrast */
 .hero::before {
   content: "";
   position: absolute;
   inset: 0;
   background: linear-gradient(
     to bottom,
-    rgba(0, 0, 0, 0) 0%,
-    rgba(0, 0, 0, 0.2) 50%,
-    rgba(0, 0, 0, 0.55) 100%
+    rgb(0 0 0 / 0%) 0%,
+    rgb(0 0 0 / 20%) 50%,
+    rgb(0 0 0 / 55%) 100%
   );
   z-index: -1;
 }
