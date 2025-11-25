@@ -19,7 +19,7 @@
   align-items: center;
   padding: 12px 16px;
   box-sizing: border-box;
-  gap: 24px;
+  gap: 32px;
 }
 
 /* Brand (Velu Chits) */
@@ -34,25 +34,35 @@
   flex: 1;
 }
 
-/* Reset text spacing inside sections */
+/* make whatever is inside nav-sections a horizontal row */
 .nav-sections .default-content-wrapper {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 24px;
   margin: 0;
   padding: 0;
 }
 
-/* Reset default list styles if there is a <ul> */
+/* Remove bullets if there is a list */
 .nav-sections ul {
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
-/* Base link styles */
+/* Each direct child (p, li, etc.) */
+.nav-sections .default-content-wrapper > * {
+  margin: 0;
+}
+
+/* Links */
 .nav-sections a {
   text-decoration: none;
   color: #222;
   font-size: 16px;
   font-weight: 500;
+  padding: 4px 0;
 }
 
 /* Hover effect */
@@ -62,118 +72,14 @@
   border-bottom: 2px solid #000;
 }
 
-/* Right-side tools area (if used later) */
+/* Tools area (if you ever use it) */
 .nav-tools {
   display: flex;
   gap: 12px;
   align-items: center;
 }
 
-/* Hamburger container */
+/* Hide hamburger on this simpler version */
 .nav-hamburger {
-  margin-left: auto;
-}
-
-/* Hamburger button */
-.nav-hamburger button {
-  border: none;
-  background: transparent;
-  cursor: pointer;
-  padding: 4px;
-}
-
-/* Hamburger icon using span */
-.nav-hamburger-icon,
-.nav-hamburger-icon::before,
-.nav-hamburger-icon::after {
-  display: block;
-  width: 22px;
-  height: 2px;
-  border-radius: 1px;
-  background: #000;
-  position: relative;
-}
-
-.nav-hamburger-icon::before,
-.nav-hamburger-icon::after {
-  content: "";
-  position: absolute;
-  left: 0;
-}
-
-.nav-hamburger-icon::before {
-  top: -6px;
-}
-
-.nav-hamburger-icon::after {
-  top: 6px;
-}
-
-/* ========== MOBILE (< 900px) ========== */
-@media (max-width: 899px) {
-  #nav {
-    padding: 10px 12px;
-  }
-
-  .nav-brand {
-    margin-right: auto;
-  }
-
-  /* Hide desktop menu by default on mobile */
-  .nav-sections {
-    position: absolute;
-    inset-inline: 0;
-    top: 100%;
-    background: #fff;
-    box-shadow: 0 4px 12px rgb(0 0 0 / 15%);
-    display: none;
-    z-index: 40;
-  }
-
-  /* Show menu when nav is expanded (header.js controls aria-expanded) */
-  #nav[aria-expanded="true"] .nav-sections {
-    display: block;
-  }
-
-  /* MOBILE: vertical stack of items */
-  .nav-sections .default-content-wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 8px 16px 16px;
-    gap: 8px;
-  }
-
-  .nav-sections .default-content-wrapper > * {
-    margin: 0;
-    padding: 6px 0;
-    width: 100%;
-  }
-
-  .nav-tools {
-    display: none;
-  }
-}
-
-/* ========== DESKTOP (>= 900px) ========== */
-@media (min-width: 900px) {
-  .nav-hamburger {
-    display: none;
-  }
-
-  .nav-sections {
-    display: block;
-  }
-
-  /* DESKTOP: horizontal row of items */
-  .nav-sections .default-content-wrapper {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 24px;
-  }
-
-  .nav-sections .default-content-wrapper > * {
-    margin: 0;
-  }
+  display: none;
 }
