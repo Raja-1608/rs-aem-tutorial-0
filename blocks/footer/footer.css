@@ -1,29 +1,43 @@
 /* blocks/footer/footer.css
-   Responsive, non-overlapping, full-width footer
+   Responsive, full-width footer — no overlap, no huge blank area.
+   Replace entire file contents with this.
 */
 
-/* Container: full-width background that stays in normal flow */
+:root {
+  --footer-bg: #0b0b0b;
+  --footer-foreground: #e6e6e6;
+  --footer-muted: #a9a9a9;
+  --container-max: 1200px;
+}
+
+/* ensure page baseline doesn't cause overlap */
+html, body {
+  height: 100%;
+  box-sizing: border-box;
+}
+*, *::before, *::after { box-sizing: inherit; }
+
+/* Footer: keep it in normal flow (not fixed) and only as tall as its content */
 .footer {
   width: 100%;
-  background: #0b0b0b;
-  color: #e6e6e6;
-  box-sizing: border-box;
+  background: var(--footer-bg);
+  color: var(--footer-foreground);
   padding: 36px 0;
-  position: static;   /* keep footer in document flow */
+  position: relative;   /* relative (NOT fixed/absolute/sticky) */
   z-index: 1;
+  min-height: 0;        /* prevents accidental large minimum */
   height: auto;
-  min-height: 0;
+  overflow: visible;
 }
 
-/* Constrain content in the center while background spans full width */
+/* Center content and allow full-width background */
 .footer .footer-inner {
-  max-width: 1200px;
+  max-width: var(--container-max);
   margin: 0 auto;
   padding: 0 20px;
-  box-sizing: border-box;
 }
 
-/* Grid: flexible columns on desktop, stacked on mobile */
+/* Layout grid */
 .footer-grid {
   display: flex;
   gap: 24px;
@@ -32,18 +46,17 @@
   flex-wrap: wrap;
 }
 
-/* Column sizing */
+/* columns */
 .footer-col {
-  min-width: 200px;
-  flex: 1 1 240px;
-  box-sizing: border-box;
+  flex: 1 1 260px;
+  min-width: 180px;
 }
 
-/* Brand and description */
+/* Brand + short description */
 .footer .brand {
-  font-weight: 700;
   font-size: 20px;
-  color: #ffffff;
+  font-weight: 700;
+  color: #fff;
   margin-bottom: 8px;
 }
 .footer .brand-desc {
@@ -53,83 +66,67 @@
   margin-bottom: 18px;
 }
 
-/* Simple horizontal nav list — wraps on smaller screens */
-.footer .footer-nav {
+/* footer nav (inline list) */
+.footer-nav {
   display: flex;
-  gap: 16px;
-  flex-wrap: wrap;
+  gap: 14px;
   margin: 0;
   padding: 0;
   list-style: none;
+  flex-wrap: wrap;
 }
-.footer .footer-nav li {
-  margin: 0;
-}
-.footer .footer-nav a {
+.footer-nav li { margin: 0; }
+.footer-nav a {
   color: #cfcfcf;
   text-decoration: none;
   font-size: 14px;
-  padding: 4px 0;
-  display: inline-block;
 }
-.footer .footer-nav a:hover,
-.footer .footer-nav a:focus {
-  color: #ffffff;
-  text-decoration: underline;
-}
+.footer-nav a:hover { color: #fff; text-decoration: underline; }
 
-/* Social icons (right aligned on wide screens) */
+/* social icons area */
 .footer .social {
   display: flex;
   gap: 12px;
   align-items: center;
-  justify-content: flex-end;
-  flex-wrap: wrap;
 }
-.footer .social img,
-.footer .social svg {
+.footer .social img, .footer .social svg {
   width: 28px;
   height: 28px;
   display: inline-block;
-  vertical-align: middle;
-  filter: brightness(1.1);
 }
 
-/* Divider and copyright area */
-.footer .footer-divider {
-  border-top: 1px solid rgba(255, 255, 255, 0.06);
+/* divider and copyright */
+.footer-divider {
+  border-top: 1px solid rgba(255,255,255,0.06);
   margin: 22px 0;
 }
-.footer .copyright {
+.footer-bottom {
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 12px;
   flex-wrap: wrap;
-  color: #a9a9a9;
+  color: var(--footer-muted);
   font-size: 13px;
-  margin: 0;
 }
 
-/* Accessibility: focus outline for keyboard users */
-.footer a:focus {
-  outline: 3px solid rgba(255,255,255,0.12);
-  outline-offset: 2px;
-}
-
-/* Mobile adjustments */
+/* small screens */
 @media (max-width: 860px) {
-  .footer {
-    padding: 28px 0;
-  }
-  .footer-grid {
-    flex-direction: column;
-    gap: 18px;
-  }
-  .footer .social {
-    justify-content: flex-start;
-  }
-  .footer .copyright {
-    text-align: left;
-  }
+  .footer { padding: 28px 0; }
+  .footer-grid { flex-direction: column; gap: 18px; }
+  .footer .social { justify-content: flex-start; }
+  .footer-bottom { text-align: left; }
 }
+
+/* safety: remove any previously injected debug rules (high specificity to override) */
+.footer[style] { /* don't rely on inline style but neutralize if present */
+  min-height: 0 !important;
+  height: auto !important;
+  padding: 36px 0 !important;
+  position: relative !important;
+  z-index: 1 !important;
+  overflow: visible !important;
+}
+
+/* small accessibility focus */
+.footer a:focus { outline: 3px solid rgba(255,255,255,0.12); outline-offset: 2px; }

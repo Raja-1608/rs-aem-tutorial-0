@@ -1,43 +1,48 @@
-<!-- footer fragment -->
-<footer class="footer" role="contentinfo">
+<!-- footer fragment: blocks/footer/footer.html -->
+<footer class="footer" role="contentinfo" aria-label="Site footer">
   <div class="footer-inner">
     <div class="footer-grid">
-
-      <!-- Brand / description -->
       <div class="footer-col">
-        <div class="brand"><a href="/" style="color:inherit; text-decoration:none;">Velu Chits</a></div>
+        <div class="brand"><a href="/">Velu Chits</a></div>
         <div class="brand-desc">Your trusted partner in smart savings.</div>
-      </div>
-
-      <!-- navigation links -->
-      <div class="footer-col">
-        <ul class="footer-nav">
+        <ul class="footer-nav" aria-label="Footer links">
           <li><a href="/">Home</a></li>
-          <li><a href="/services">Services</a></li>
-          <li><a href="/chit-plans">Chit Plans</a></li>
-          <li><a href="/about">About Us</a></li>
-          <li><a href="/contact">Contact</a></li>
+          <li><a href="/services.html">Services</a></li>
+          <li><a href="/chit-plans.html">Chit Plans</a></li>
+          <li><a href="/about.html">About Us</a></li>
+          <li><a href="/contact.html">Contact</a></li>
         </ul>
       </div>
 
-      <!-- social icons -->
       <div class="footer-col">
-        <div class="social">
-          <!-- If you don't have icon files, replace <img> with text links or inline SVGs -->
-          <a href="#" aria-label="Facebook"><img src="/icons/facebook.svg" alt="fb" /></a>
-          <a href="#" aria-label="Instagram"><img src="/icons/instagram.svg" alt="ig" /></a>
-          <a href="#" aria-label="YouTube"><img src="/icons/youtube.svg" alt="yt" /></a>
-          <a href="#" aria-label="LinkedIn"><img src="/icons/linkedin.svg" alt="li" /></a>
-        </div>
+        <h4 style="color:#fff;margin:0 0 8px 0;font-size:16px;">Quick links</h4>
+        <p style="color:#cfcfcf;margin:0;font-size:14px;">Useful resources and pages.</p>
       </div>
 
+      <div class="footer-col" aria-label="Follow us">
+        <div style="display:flex;align-items:center;justify-content:flex-end;">
+          <div class="social">
+            <!-- use your SVG/icon images or <img> -->
+            <a href="#" aria-label="Facebook"><img src="/icons/facebook.svg" alt="Facebook" /></a>
+            <a href="#" aria-label="Twitter"><img src="/icons/twitter.svg" alt="Twitter" /></a>
+            <a href="#" aria-label="Instagram"><img src="/icons/instagram.svg" alt="Instagram" /></a>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <div class="footer-divider" role="presentation"></div>
+    <div class="footer-divider" role="separator" aria-hidden="true"></div>
 
-    <div class="copyright">
-      <div>© 2024 Velu Chits. All rights reserved.</div>
-      <div>Made with ♥</div>
+    <div class="footer-bottom">
+      <div>© <span id="year"></span> Velu Chits. All rights reserved.</div>
+      <div class="legal" style="color:#9f9f9f;font-size:13px;">Terms • Privacy</div>
     </div>
   </div>
 </footer>
+
+<script>
+  // small client-side line to keep year updated (safe to include in fragment)
+  (function () {
+    var el = document.getElementById('year'); if (el) el.textContent = new Date().getFullYear();
+  }());
+</script>
