@@ -3,7 +3,7 @@
  * Overrides the hero image using an external URL.
  */
 export default function decorate(block) {
-  const HERO_URL = 'https://omathisaakthichits.com/img/banner3.png';
+  const HERO_URL = 'https://valarnidhichits.com/css/images/banner3.jpg';
 
   // 1) Try to find a <picture> with sources + img
   const picture = block.querySelector('picture');
