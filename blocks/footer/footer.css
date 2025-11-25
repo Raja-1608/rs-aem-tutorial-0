@@ -1,22 +1,21 @@
 /* blocks/footer/footer.css
-   Responsive, full-width footer for Velu Chits
-   Replace the existing file with this content.
+   Responsive, non-overlapping, full-width footer
 */
 
-/* Root footer container (full width) */
+/* Container: full-width background that stays in normal flow */
 .footer {
   width: 100%;
   background: #0b0b0b;
   color: #e6e6e6;
   box-sizing: border-box;
   padding: 36px 0;
-  position: static;     /* keep in normal flow to avoid overlap */
+  position: static;   /* keep footer in document flow */
   z-index: 1;
   height: auto;
   min-height: 0;
 }
 
-/* Centered inner wrapper so background is full width */
+/* Constrain content in the center while background spans full width */
 .footer .footer-inner {
   max-width: 1200px;
   margin: 0 auto;
@@ -24,7 +23,7 @@
   box-sizing: border-box;
 }
 
-/* Grid: 3 columns on desktop, stacked on mobile */
+/* Grid: flexible columns on desktop, stacked on mobile */
 .footer-grid {
   display: flex;
   gap: 24px;
@@ -33,23 +32,19 @@
   flex-wrap: wrap;
 }
 
-/* Each column */
+/* Column sizing */
 .footer-col {
   min-width: 200px;
   flex: 1 1 240px;
+  box-sizing: border-box;
 }
 
-/* Brand */
+/* Brand and description */
 .footer .brand {
   font-weight: 700;
   font-size: 20px;
   color: #ffffff;
   margin-bottom: 8px;
-  line-height: 1.25;
-}
-.footer .brand a {
-  color: inherit;
-  text-decoration: none;
 }
 .footer .brand-desc {
   color: #cfcfcf;
@@ -58,7 +53,7 @@
   margin-bottom: 18px;
 }
 
-/* Footer navigation (simple inline list) */
+/* Simple horizontal nav list — wraps on smaller screens */
 .footer .footer-nav {
   display: flex;
   gap: 16px;
@@ -69,7 +64,6 @@
 }
 .footer .footer-nav li {
   margin: 0;
-  padding: 0;
 }
 .footer .footer-nav a {
   color: #cfcfcf;
@@ -84,12 +78,13 @@
   text-decoration: underline;
 }
 
-/* Social icons */
+/* Social icons (right aligned on wide screens) */
 .footer .social {
   display: flex;
   gap: 12px;
   align-items: center;
   justify-content: flex-end;
+  flex-wrap: wrap;
 }
 .footer .social img,
 .footer .social svg {
@@ -97,7 +92,7 @@
   height: 28px;
   display: inline-block;
   vertical-align: middle;
-  filter: brightness(1.2);
+  filter: brightness(1.1);
 }
 
 /* Divider and copyright area */
@@ -113,9 +108,16 @@
   flex-wrap: wrap;
   color: #a9a9a9;
   font-size: 13px;
+  margin: 0;
 }
 
-/* Small screens: stack columns, align social left */
+/* Accessibility: focus outline for keyboard users */
+.footer a:focus {
+  outline: 3px solid rgba(255,255,255,0.12);
+  outline-offset: 2px;
+}
+
+/* Mobile adjustments */
 @media (max-width: 860px) {
   .footer {
     padding: 28px 0;
@@ -130,15 +132,4 @@
   .footer .copyright {
     text-align: left;
   }
-}
-
-/* Accessibility focus outline (subtle) */
-.footer a:focus {
-  outline: 3px solid rgba(255,255,255,0.12);
-  outline-offset: 2px;
-}
-
-/* Small visual touch for svg/png fallback if icons missing */
-.footer .social img[alt=""] {
-  opacity: 0.9;
 }
