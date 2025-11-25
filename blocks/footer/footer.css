@@ -1,13 +1,20 @@
-/* Footer — full width background */
+/* blocks/footer/footer.css
+   Full-width, responsive footer (safe, non-overlapping)
+*/
+
 .footer {
   width: 100%;
-  background: #0b0b0b; /* dark footer background */
+  background: #0b0b0b;
   color: #e6e6e6;
   box-sizing: border-box;
   padding: 36px 0;
+  position: static;      /* keep footer in normal flow */
+  z-index: 1;
+  height: auto;
+  min-height: 0;
 }
 
-/* Constrain content but keep full-width bg */
+/* Inner constraint so background is full-width but content is centered */
 .footer .footer-inner {
   max-width: 1200px;
   margin: 0 auto;
@@ -15,7 +22,7 @@
   box-sizing: border-box;
 }
 
-/* Layout: desktop 3 columns, mobile stacked */
+/* Desktop: three columns; mobile: stacked */
 .footer-grid {
   display: flex;
   gap: 24px;
@@ -24,21 +31,19 @@
   flex-wrap: wrap;
 }
 
-/* Column sizing */
+/* Columns */
 .footer-col {
   min-width: 200px;
-  flex: 1 1 240px; /* grow, shrink, base width */
+  flex: 1 1 240px;
 }
 
-/* Brand/title */
+/* Brand / description */
 .footer .brand {
   font-weight: 700;
   font-size: 20px;
   color: #ffffff;
   margin-bottom: 8px;
 }
-
-/* Short description under brand */
 .footer .brand-desc {
   color: #cfcfcf;
   font-size: 14px;
@@ -46,7 +51,7 @@
   margin-bottom: 18px;
 }
 
-/* Footer nav (links) */
+/* Footer nav (simple list) */
 .footer .footer-nav {
   display: flex;
   gap: 16px;
@@ -55,7 +60,6 @@
   padding: 0;
   list-style: none;
 }
-
 .footer .footer-nav a {
   color: #cfcfcf;
   text-decoration: none;
@@ -63,21 +67,18 @@
   padding: 4px 0;
   display: inline-block;
 }
-
 .footer .footer-nav a:hover {
   color: #ffffff;
   text-decoration: underline;
 }
 
-/* Social icons column: align right on desktop */
+/* Social icons right aligned on desktop */
 .footer .social {
   display: flex;
   gap: 12px;
   align-items: center;
   justify-content: flex-end;
 }
-
-/* small icon style */
 .footer .social img,
 .footer .social svg {
   width: 28px;
@@ -87,13 +88,11 @@
   filter: brightness(1.2);
 }
 
-/* Divider between content and copyright */
+/* Divider and copyright */
 .footer .footer-divider {
   border-top: 1px solid rgba(255,255,255,0.06);
   margin: 22px 0;
 }
-
-/* Copyright row */
 .footer .copyright {
   display: flex;
   justify-content: space-between;
