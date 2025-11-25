@@ -1,10 +1,8 @@
 /**
  * Default Content Wrapper Block
- * This block currently does nothing — it only exists to satisfy AEM runtime loading.
- * This prevents "failed to load module" errors.
+ * This block currently has no custom behavior.
+ * It only exists to satisfy the AEM runtime loader.
  */
-
-export default function decorate(block) {
-  // Use the parameter so ESLint doesn't complain, but do nothing else.
-  if (!block) return;
+export default function decorate() {
+  // Intentionally left blank (no-op block).
 }
