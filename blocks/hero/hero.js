@@ -1,35 +1,35 @@
 /**
  * Hero block customization for Velu Chits.
- * Overrides the hero image using an external URL.
+ * Uses the Velar Nidhi banner and updates the heading text.
  */
 export default function decorate(block) {
   const HERO_URL = 'https://valarnidhichits.com/css/images/banner3.jpg';
 
-  // 1) Try to find a <picture> with sources + img
+  // Find picture/img in the hero
   const picture = block.querySelector('picture');
   const img = picture ? picture.querySelector('img') : block.querySelector('img');
 
-  // Update <source> elements inside <picture> so the browser can't fall back to the old image
+  // Override <source> tags so the browser can't fall back to the old image
   if (picture) {
     picture.querySelectorAll('source').forEach((source) => {
+      // eslint-disable-next-line no-param-reassign
       source.srcset = HERO_URL;
     });
   }
 
-  // Update <img> itself
+  // Override the <img> itself
   if (img) {
     img.src = HERO_URL;
     img.srcset = HERO_URL;
     if (!img.alt || !img.alt.trim()) {
-      img.alt = 'Growth concept jar with plant and coins';
+      img.alt = 'Savings growth banner for Velu Chits';
     }
   }
 
-  // 2) Also override any CSS background-image on the hero container, just in case
-  const heroContainer = block.closest('.hero, .hero-container, .hero-wrapper');
-  if (heroContainer) {
-    heroContainer.style.backgroundImage = `url("${HERO_URL}")`;
-    heroContainer.style.backgroundSize = 'cover';
-    heroContainer.style.backgroundPosition = 'center';
+  // Update the hero heading text
+  const heading = block.querySelector('h1, h2');
+  if (heading) {
+    // eslint-disable-next-line no-param-reassign
+    heading.textContent = 'Your Smart Savings Journey Starts Here';
   }
 }
