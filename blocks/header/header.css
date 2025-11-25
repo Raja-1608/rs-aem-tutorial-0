@@ -34,33 +34,25 @@
   flex: 1;
 }
 
-/* Reset list styles */
+/* Reset text spacing inside sections */
+.nav-sections .default-content-wrapper {
+  margin: 0;
+  padding: 0;
+}
+
+/* Reset default list styles if there is a <ul> */
 .nav-sections ul {
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
-/* DESKTOP: horizontal menu */
-.nav-sections > .default-content-wrapper > ul {
-  display: flex;
-  gap: 24px;
-  justify-content: flex-start;
-  align-items: center;
-}
-
-/* Each menu item */
-.nav-sections li {
-  position: relative;
-}
-
-/* Links */
+/* Base link styles */
 .nav-sections a {
   text-decoration: none;
   color: #222;
   font-size: 16px;
   font-weight: 500;
-  padding: 4px 0;
 }
 
 /* Hover effect */
@@ -70,7 +62,7 @@
   border-bottom: 2px solid #000;
 }
 
-/* Optional tools area on the right */
+/* Right-side tools area (if used later) */
 .nav-tools {
   display: flex;
   gap: 12px;
@@ -118,7 +110,7 @@
 }
 
 /* ========== MOBILE (< 900px) ========== */
-@media (width < 900px) {
+@media (max-width: 899px) {
   #nav {
     padding: 10px 12px;
   }
@@ -143,8 +135,8 @@
     display: block;
   }
 
-  /* MOBILE: vertical list */
-  .nav-sections > .default-content-wrapper > ul {
+  /* MOBILE: vertical stack of items */
+  .nav-sections .default-content-wrapper {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -152,10 +144,10 @@
     gap: 8px;
   }
 
-  .nav-sections a {
-    display: block;
-    width: 100%;
+  .nav-sections .default-content-wrapper > * {
+    margin: 0;
     padding: 6px 0;
+    width: 100%;
   }
 
   .nav-tools {
@@ -164,12 +156,24 @@
 }
 
 /* ========== DESKTOP (>= 900px) ========== */
-@media (width >= 900px) {
+@media (min-width: 900px) {
   .nav-hamburger {
     display: none;
   }
 
   .nav-sections {
     display: block;
+  }
+
+  /* DESKTOP: horizontal row of items */
+  .nav-sections .default-content-wrapper {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .nav-sections .default-content-wrapper > * {
+    margin: 0;
   }
 }
