@@ -1,17 +1,17 @@
-/* Top header wrapper */
+/* Sticky header wrapper */
 .header {
   position: sticky;
   top: 0;
   z-index: 100;
 }
 
-/* Outer container */
+/* Full-width bar background */
 .nav-wrapper {
   background: #fff;
-  box-shadow: 0 2px 8px rgb(0 0 0 / 10%);
+  box-shadow: 0 1px 6px rgb(0 0 0 / 10%);
 }
 
-/* Main nav element */
+/* Main nav row */
 #nav {
   max-width: 1200px;
   margin: 0 auto;
@@ -29,19 +29,19 @@
   white-space: nowrap;
 }
 
-/* Sections (top-level menu) */
+/* Container for menu items */
 .nav-sections {
   flex: 1;
 }
 
-/* Reset default list styles */
+/* Reset list styles */
 .nav-sections ul {
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
-/* Desktop menu layout */
+/* DESKTOP: horizontal menu */
 .nav-sections > .default-content-wrapper > ul {
   display: flex;
   gap: 24px;
@@ -49,6 +49,7 @@
   align-items: center;
 }
 
+/* Each menu item */
 .nav-sections li {
   position: relative;
 }
@@ -62,19 +63,14 @@
   padding: 4px 0;
 }
 
-/* Underline on hover */
-.nav-sections a:hover {
+/* Hover effect */
+.nav-sections a:hover,
+.nav-sections a:focus-visible {
   color: #000;
-}
-
-/* Active-like underline when aria-expanded=true (for drop-downs if used) */
-.nav-sections li[aria-expanded="true"] > a {
-  color: #000;
-  font-weight: 600;
   border-bottom: 2px solid #000;
 }
 
-/* Right-side tools area (if used later) */
+/* Optional tools area on the right */
 .nav-tools {
   display: flex;
   gap: 12px;
@@ -94,7 +90,7 @@
   padding: 4px;
 }
 
-/* Hamburger icon basic look if using span-based icon */
+/* Hamburger icon using span */
 .nav-hamburger-icon,
 .nav-hamburger-icon::before,
 .nav-hamburger-icon::after {
@@ -121,18 +117,17 @@
   top: 6px;
 }
 
-/* Mobile nav: stack sections vertically when open */
+/* ========== MOBILE (< 900px) ========== */
 @media (width < 900px) {
   #nav {
     padding: 10px 12px;
   }
 
-  /* Brand + hamburger in one row */
   .nav-brand {
     margin-right: auto;
   }
 
-  /* Hide desktop menu by default */
+  /* Hide desktop menu by default on mobile */
   .nav-sections {
     position: absolute;
     inset-inline: 0;
@@ -140,14 +135,17 @@
     background: #fff;
     box-shadow: 0 4px 12px rgb(0 0 0 / 15%);
     display: none;
+    z-index: 40;
   }
 
-  /* Show menu when nav is expanded */
+  /* Show menu when nav is expanded (header.js controls aria-expanded) */
   #nav[aria-expanded="true"] .nav-sections {
     display: block;
   }
 
+  /* MOBILE: vertical list */
   .nav-sections > .default-content-wrapper > ul {
+    display: flex;
     flex-direction: column;
     align-items: flex-start;
     padding: 8px 16px 16px;
@@ -165,7 +163,7 @@
   }
 }
 
-/* Desktop: show full menu, hide hamburger */
+/* ========== DESKTOP (>= 900px) ========== */
 @media (width >= 900px) {
   .nav-hamburger {
     display: none;
