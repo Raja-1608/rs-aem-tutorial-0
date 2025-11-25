@@ -1,85 +1,84 @@
-/* Sticky header wrapper */
-.header {
-  position: sticky;
-  top: 0;
-  z-index: 100;
+header {
+  position: relative;
+  z-index: 1000;
 }
 
-/* Full-width bar background */
-.nav-wrapper {
-  background: #fff;
-  box-shadow: 0 1px 6px rgb(0 0 0 / 10%);
+header nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 24px;
 }
 
-/* Main nav row */
-#nav {
-  max-width: 1200px;
-  margin: 0 auto;
+header .nav-brand {
   display: flex;
   align-items: center;
-  padding: 12px 16px;
-  box-sizing: border-box;
-  gap: 32px;
 }
 
-/* Brand (Velu Chits) */
-.nav-brand {
-  font-weight: 700;
-  font-size: 20px;
-  white-space: nowrap;
+header .nav-brand img {
+  height: 40px;
+  width: auto;
 }
 
-/* Container for menu items */
-.nav-sections {
-  flex: 1;
-}
-
-/* make whatever is inside nav-sections a horizontal row */
-.nav-sections .default-content-wrapper {
+header .nav-sections {
   display: flex;
-  justify-content: flex-start;
-  align-items: center;
   gap: 24px;
-  margin: 0;
-  padding: 0;
 }
 
-/* Remove bullets if there is a list */
-.nav-sections ul {
+header .nav-sections ul {
   list-style: none;
   margin: 0;
   padding: 0;
-}
-
-/* Each direct child (p, li, etc.) */
-.nav-sections .default-content-wrapper > * {
-  margin: 0;
-}
-
-/* Links */
-.nav-sections a {
-  text-decoration: none;
-  color: #222;
-  font-size: 16px;
-  font-weight: 500;
-  padding: 4px 0;
-}
-
-/* Hover effect */
-.nav-sections a:hover,
-.nav-sections a:focus-visible {
-  color: #000;
-  border-bottom: 2px solid #000;
-}
-
-/* Tools area (if you ever use it) */
-.nav-tools {
   display: flex;
-  gap: 12px;
-  align-items: center;
+  gap: 24px;
 }
 
-/* Hide hamburger on this simpler version */
+header .nav-sections li {
+  position: relative;
+}
+
+header .nav-sections a {
+  text-decoration: none;
+  font-weight: 500;
+  color: var(--text-color);
+}
+
+header .nav-sections a:hover {
+  color: var(--link-hover-color);
+}
+
 .nav-hamburger {
   display: none;
 }
+
+@media (max-width: 900px) {
+  header nav {
+    flex-direction: row;
+  }
+
+  .nav-hamburger {
+    display: block;
+  }
+
+  .nav-sections {
+    position: absolute;
+    top: 64px;
+    left: 0;
+    width: 100%;
+    display: none;
+    flex-direction: column;
+    background: white;
+    padding: 16px;
+    gap: 16px;
+  }
+
+  header[aria-expanded='true'] .nav-sections {
+    display: flex;
+  }
+
+  .nav-sections ul {
+    flex-direction: column;
+    gap: 12px;
+  }
+}
+
