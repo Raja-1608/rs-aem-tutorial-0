@@ -22,11 +22,25 @@
   gap: 32px;
 }
 
-/* Brand (Velu Chits) */
+/* Brand (Velu Chits) – HIGHLIGHTED */
 .nav-brand {
-  font-weight: 700;
-  font-size: 20px;
+  font-weight: 800;
+  font-size: 24px;
+  color: #0057ff;                 /* Bright blue text */
+  letter-spacing: 0.5px;
+  padding: 6px 18px;
+  background: #e8efff;            /* Soft blue pill */
+  border-radius: 14px;
+  box-shadow: 0 3px 6px rgb(0 0 0 / 12%);
   white-space: nowrap;
+  transition: 0.3s ease;
+}
+
+/* Hover animation for brand */
+.nav-brand:hover {
+  background: #dbe8ff;
+  color: #003ecb;
+  transform: translateY(-2px);
 }
 
 /* Container for menu items */
@@ -34,7 +48,7 @@
   flex: 1;
 }
 
-/* make whatever is inside nav-sections a horizontal row */
+/* Make items horizontal */
 .nav-sections .default-content-wrapper {
   display: flex;
   justify-content: flex-start;
@@ -44,42 +58,45 @@
   padding: 0;
 }
 
-/* Remove bullets if there is a list */
+/* Remove bullets */
 .nav-sections ul {
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
-/* Each direct child (p, li, etc.) */
+/* Align direct children */
 .nav-sections .default-content-wrapper > * {
   margin: 0;
 }
 
-/* Links */
+/* Menu links */
 .nav-sections a {
   text-decoration: none;
   color: #222;
   font-size: 16px;
   font-weight: 500;
-  padding: 4px 0;
+  padding: 6px 12px;
+  border-radius: 12px;
+  transition: 0.25s ease;
 }
 
-/* Hover effect */
+/* Hover for menu items */
 .nav-sections a:hover,
 .nav-sections a:focus-visible {
+  background: #f2f5ff;
   color: #000;
-  border-bottom: 2px solid #000;
+  box-shadow: 0 2px 4px rgb(0 0 0 / 12%);
 }
 
-/* Tools area (if you ever use it) */
+/* Tools area */
 .nav-tools {
   display: flex;
   gap: 12px;
   align-items: center;
 }
 
-/* Hide hamburger on this simpler version */
+/* Hide hamburger for desktop layout */
 .nav-hamburger {
   display: none;
 }
