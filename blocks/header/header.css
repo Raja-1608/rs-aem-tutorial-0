@@ -1,21 +1,30 @@
-/* Sticky header container */
-.header {
+/* ================================
+   Velu Chits Header - FINAL
+   Matches current <nav> HTML
+   ================================ */
+
+/* Make the whole header sticky at the top */
+.header-wrapper {
   position: sticky;
   top: 0;
   z-index: 100;
   background: #fff;
 }
 
-/* Outer nav wrapper (centers content and adds subtle shadow) */
-.header .nav-wrapper {
+/* Inner header container */
+.header-wrapper .header {
   max-width: 1200px;
   margin: 0 auto;
+}
+
+/* Nav wrapper: padding + subtle shadow */
+.header-wrapper .nav-wrapper {
   padding: 8px 24px;
   box-sizing: border-box;
   box-shadow: 0 1px 3px #e0e0e0;
 }
 
-/* Main nav row */
+/* Main nav row: brand + menu + tools */
 #nav {
   display: flex;
   align-items: center;
@@ -23,10 +32,16 @@
   gap: 24px;
 }
 
-/* ===== Brand (Velu Chits) ===== */
+/* =====================
+   Brand (Velu Chits)
+   ===================== */
 
 .nav-brand {
   margin-right: 16px;
+}
+
+.nav-brand .default-content-wrapper p {
+  margin: 0;
 }
 
 .nav-brand a {
@@ -37,69 +52,81 @@
   white-space: nowrap;
 }
 
-/* ===== Nav sections (menu items) ===== */
+/* =====================
+   Nav sections (pills)
+   ===================== */
 
+/* Container for all menu items */
 .nav-sections {
   flex: 1;
 }
 
-/* Turn the UL into a horizontal row on desktop */
-.nav-sections .default-content-wrapper > ul {
+/* Lay out the <p class="button-container"> elements in a row */
+.nav-sections .default-content-wrapper {
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  list-style: none;
-  gap: 24px;
-  margin: 0;
-  padding: 0;
-}
-
-.nav-sections .default-content-wrapper > ul > li {
+  flex-wrap: wrap;          /* allow wrap if too many items */
+  gap: 16px;
   margin: 0;
 }
 
-/* Links style */
-.nav-sections a {
-  text-decoration: none;
-  color: #222;
-  font-size: 16px;
-  font-weight: 500;
-  padding: 4px 0;
+/* Remove extra paragraph spacing */
+.nav-sections .button-container {
+  margin: 0;
 }
 
-/* Hover / focus state for menu items */
-.nav-sections a:hover,
-.nav-sections a:focus-visible {
-  color: #1f3ebf;
-  border-bottom: 2px solid #1f3ebf;
-}
-
-/* Optional tools area (if you ever use it) */
-.nav-tools {
-  display: flex;
+/* Pill-style links */
+.nav-sections .button {
+  display: inline-flex;
   align-items: center;
-  gap: 12px;
+  justify-content: center;
+  padding: 8px 20px;
+  border-radius: 999px;
+  background: #3b63fb;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+  white-space: nowrap;
+  transition: background 0.2s ease, transform 0.1s ease;
 }
 
-/* Hamburger – hidden on desktop by default */
+.nav-sections .button:hover,
+.nav-sections .button:focus-visible {
+  background: #1d3ecf;
+  transform: translateY(-1px);
+}
+
+/* Optional tools area on the far right (currently empty) */
+.nav-tools {
+  margin-left: auto;
+}
+
+/* Hamburger: we’ll use it only on mobile */
 .nav-hamburger {
   display: none;
 }
 
-/* ===== Mobile layout (match header.js isDesktop = (min-width: 900px)) ===== */
-/* stylelint wants “context” range notation, so we use width <= 900px */
+/* ===========================
+   Mobile / Tablet Behaviour
+   Matches header.js breakpoint
+   (isDesktop = (min-width: 900px))
+   =========================== */
+
 @media (width <= 900px) {
-  .header .nav-wrapper {
+  .header-wrapper .nav-wrapper {
     padding: 8px 16px;
     box-shadow: 0 1px 2px #e0e0e0;
   }
 
+  /* Let items wrap into multiple rows */
   #nav {
     flex-wrap: wrap;
     gap: 8px;
   }
 
-  /* Brand left, hamburger right */
+  /* Order: brand first, hamburger second, menu third */
   .nav-brand {
     order: 1;
   }
@@ -110,13 +137,13 @@
     margin-left: auto;
   }
 
-  /* Menu block takes full width under brand/hamburger */
   .nav-sections {
     order: 3;
     width: 100%;
   }
 
-  .nav-sections .default-content-wrapper > ul {
+  /* Vertical list of pills on mobile */
+  .nav-sections .default-content-wrapper {
     flex-direction: column;
     align-items: flex-start;
     gap: 12px;
@@ -124,12 +151,12 @@
     border-top: 1px solid #e0e0e0;
   }
 
-  /* Hide sections when nav is collapsed (aria-expanded="false") */
+  /* Hide sections when nav is collapsed */
   #nav[aria-expanded="false"] .nav-sections {
     display: none;
   }
 
-  /* Show sections when hamburger expands nav */
+  /* Show sections when nav is expanded */
   #nav[aria-expanded="true"] .nav-sections {
     display: block;
     background: #fff;
