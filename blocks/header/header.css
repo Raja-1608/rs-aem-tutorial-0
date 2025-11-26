@@ -1,37 +1,32 @@
-/* Sticky Header */
+/* Sticky header */
 .header {
   position: sticky;
   top: 0;
   z-index: 100;
 }
 
-/* Header background */
 .nav-wrapper {
-  background: #ffffff;
-  box-shadow: 0 1px 6px rgba(0 0 0 / 10%);
-  width: 100%;
+  background-color: #fff;
+  box-shadow: 0px 1px 6px rgb(0, 0, 0, 0.10);
 }
 
-/* Navigation Layout */
 #nav {
   max-width: 1200px;
   margin: 0 auto;
   display: flex;
   align-items: center;
-  gap: 32px;
   padding: 12px 16px;
   box-sizing: border-box;
+  gap: 32px;
 }
 
-/* Brand Label */
 .nav-brand {
-  font-size: 20px;
   font-weight: 700;
-  color: #2f4cff;
+  font-size: 20px;
+  color: #000;
   white-space: nowrap;
 }
 
-/* Nav Section */
 .nav-sections {
   flex: 1;
 }
@@ -39,46 +34,42 @@
 .nav-sections .default-content-wrapper {
   display: flex;
   align-items: center;
-  justify-content: flex-start;
   gap: 24px;
-  padding: 0;
   margin: 0;
+  padding: 0;
 }
 
 .nav-sections ul {
-  list-style: none;
+  list-style-type: none;
   margin: 0;
   padding: 0;
 }
 
-.nav-sections .default-content-wrapper > * {
-  margin: 0;
-}
-
-/* Links */
 .nav-sections a {
   text-decoration: none;
-  color: #222222;
+  color: #000;
+  padding: 4px 0;
   font-size: 16px;
   font-weight: 500;
-  padding: 4px 0;
 }
 
-/* Hover Effect */
 .nav-sections a:hover,
 .nav-sections a:focus-visible {
-  color: #000000;
-  border-bottom: 2px solid #000000;
+  border-bottom: 2px solid #000;
 }
 
-/* Tools */
-.nav-tools {
-  display: flex;
-  gap: 12px;
-  align-items: center;
-}
-
-/* Hide hamburger in desktop */
 .nav-hamburger {
   display: none;
+}
+
+/* Responsive Fix */
+@media (max-width: 768px) {
+  #nav {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .nav-sections .default-content-wrapper {
+    flex-direction: column;
+  }
 }
