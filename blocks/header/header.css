@@ -1,15 +1,17 @@
-/* Sticky header */
+/* Header wrapper */
 .header {
   position: sticky;
   top: 0;
   z-index: 100;
 }
 
+/* Bar background */
 .nav-wrapper {
-  background-color: #fff;
-  box-shadow: 0px 1px 6px rgb(0, 0, 0, 0.10);
+  background: #fff;
+  box-shadow: 0 1px 6px rgb(0 0 0 / 10%);
 }
 
+/* Main nav container */
 #nav {
   max-width: 1200px;
   margin: 0 auto;
@@ -20,13 +22,15 @@
   gap: 32px;
 }
 
-.nav-brand {
+/* Brand */
+.nav-brand a {
   font-weight: 700;
   font-size: 20px;
-  color: #000;
   white-space: nowrap;
+  color: #3b63fb;
 }
 
+/* Menu layout */
 .nav-sections {
   flex: 1;
 }
@@ -35,41 +39,23 @@
   display: flex;
   align-items: center;
   gap: 24px;
-  margin: 0;
-  padding: 0;
 }
 
-.nav-sections ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-}
-
+/* Menu links */
 .nav-sections a {
   text-decoration: none;
-  color: #000;
-  padding: 4px 0;
+  color: #222;
   font-size: 16px;
   font-weight: 500;
 }
 
 .nav-sections a:hover,
 .nav-sections a:focus-visible {
+  color: #000;
   border-bottom: 2px solid #000;
 }
 
+/* Hamburger hidden */
 .nav-hamburger {
   display: none;
-}
-
-/* Responsive Fix */
-@media (max-width: 768px) {
-  #nav {
-    flex-direction: column;
-    gap: 12px;
-  }
-
-  .nav-sections .default-content-wrapper {
-    flex-direction: column;
-  }
 }
