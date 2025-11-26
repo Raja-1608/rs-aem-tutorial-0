@@ -1,93 +1,89 @@
-/* Footer Wrapper */
+/* Footer Full Width */
 .footer {
   width: 100%;
   background: #000;
+  color: #fff;
   padding: 40px 0;
-  color: #fff; /* ✨ Makes text visible */
-  box-sizing: border-box;
 }
 
-/* Footer container alignment */
-.footer .default-content-wrapper {
+/* Footer Container */
+.footer-container {
   max-width: 1200px;
-  margin: 0 auto;
+  margin: auto;
   padding: 0 24px;
 }
 
-/* Footer title (Velu Chits) */
-.footer h3 {
+/* Branding Text */
+.footer-brand h3 {
   font-size: 24px;
-  margin-bottom: 8px;
   font-weight: 700;
-  color: #fff;
+  color: #ffffff;
 }
 
-/* Footer description / tagline */
-.footer p {
-  margin: 6px 0 20px;
+.footer-brand p {
+  margin: 8px 0 18px;
   font-size: 15px;
   color: #e0e0e0;
 }
 
-/* Footer nav menu */
-.footer ul {
-  list-style: none;
-  padding: 0;
+/* Social Icons */
+.social-icons {
   display: flex;
+  gap: 18px;
+  font-size: 22px;
+}
+
+.social-icons a {
+  color: #4d79ff;
+  transition: 0.2s ease;
+}
+
+.social-icons a:hover {
+  color: #ffffff;
+}
+
+/* Footer Navigation */
+.footer-nav {
+  margin: 26px 0;
+  display: flex;
+  flex-wrap: wrap;
   gap: 24px;
-  margin: 12px 0;
+  padding: 0;
+  list-style: none;
 }
 
-/* Footer links */
-.footer a {
+.footer-nav a {
   text-decoration: none;
-  font-size: 14px;
   color: #b3c6ff;
+  font-size: 15px;
+  transition: 0.2s ease;
 }
 
-.footer a:hover {
+.footer-nav a:hover {
   color: #fff;
   text-decoration: underline;
 }
 
-/* Social icons spacing */
-.footer .social-icons {
-  margin-top: 12px;
-  display: flex;
-  gap: 18px;
-}
-
-.footer .social-icons a {
-  font-size: 20px;
-  color: #4d79ff;
-}
-
-.footer .social-icons a:hover {
-  color: #fff;
-}
-
-/* Footer copyright */
+/* Copyright */
 .footer .copyright {
   margin-top: 28px;
+  text-align: center;
   border-top: 1px solid #333;
   padding-top: 16px;
   font-size: 13px;
-  text-align: center;
   color: #aaa;
 }
 
 /* Responsive */
 @media (max-width: 600px) {
-  .footer ul {
+  .footer-nav {
     flex-direction: column;
+    text-align: center;
     gap: 12px;
   }
-
-  .footer .social-icons {
-    justify-content: center;
-  }
-
-  .footer {
+  .footer-brand,
+  .social-icons {
     text-align: center;
+    justify-content: center;
   }
 }

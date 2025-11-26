@@ -1,48 +1,24 @@
-<!-- footer fragment: blocks/footer/footer.html -->
-<footer class="footer" role="contentinfo" aria-label="Site footer">
-  <div class="footer-inner">
-    <div class="footer-grid">
-      <div class="footer-col">
-        <div class="brand"><a href="/">Velu Chits</a></div>
-        <div class="brand-desc">Your trusted partner in smart savings.</div>
-        <ul class="footer-nav" aria-label="Footer links">
-          <li><a href="/">Home</a></li>
-          <li><a href="/services.html">Services</a></li>
-          <li><a href="/chit-plans.html">Chit Plans</a></li>
-          <li><a href="/about.html">About Us</a></li>
-          <li><a href="/contact.html">Contact</a></li>
-        </ul>
-      </div>
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-brand">
+      <h3>Velu Chits</h3>
+      <p>Your trusted partner in smart savings.</p>
 
-      <div class="footer-col">
-        <h4 style="color:#fff;margin:0 0 8px 0;font-size:16px;">Quick links</h4>
-        <p style="color:#cfcfcf;margin:0;font-size:14px;">Useful resources and pages.</p>
-      </div>
-
-      <div class="footer-col" aria-label="Follow us">
-        <div style="display:flex;align-items:center;justify-content:flex-end;">
-          <div class="social">
-            <!-- use your SVG/icon images or <img> -->
-            <a href="#" aria-label="Facebook"><img src="/icons/facebook.svg" alt="Facebook" /></a>
-            <a href="#" aria-label="Twitter"><img src="/icons/twitter.svg" alt="Twitter" /></a>
-            <a href="#" aria-label="Instagram"><img src="/icons/instagram.svg" alt="Instagram" /></a>
-          </div>
-        </div>
+      <div class="social-icons">
+        <a href="#" aria-label="Facebook">📘</a>
+        <a href="#" aria-label="Instagram">📸</a>
+        <a href="#" aria-label="YouTube">▶️</a>
       </div>
     </div>
 
-    <div class="footer-divider" role="separator" aria-hidden="true"></div>
+    <ul class="footer-nav">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Services</a></li>
+      <li><a href="#">Chit Plans</a></li>
+      <li><a href="#">About Us</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
 
-    <div class="footer-bottom">
-      <div>© <span id="year"></span> Velu Chits. All rights reserved.</div>
-      <div class="legal" style="color:#9f9f9f;font-size:13px;">Terms • Privacy</div>
-    </div>
+    <p class="copyright">© 2024 Velu Chits. All rights reserved.</p>
   </div>
 </footer>
-
-<script>
-  // small client-side line to keep year updated (safe to include in fragment)
-  (function () {
-    var el = document.getElementById('year'); if (el) el.textContent = new Date().getFullYear();
-  }());
-</script>
