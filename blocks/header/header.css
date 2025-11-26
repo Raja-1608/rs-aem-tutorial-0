@@ -1,61 +1,137 @@
-/* Header wrapper */
+/* Sticky header container */
 .header {
   position: sticky;
   top: 0;
   z-index: 100;
-}
-
-/* Bar background */
-.nav-wrapper {
   background: #fff;
-  box-shadow: 0 1px 6px rgb(0 0 0 / 10%);
 }
 
-/* Main nav container */
-#nav {
+/* Outer nav wrapper (centers content and adds subtle shadow) */
+.header .nav-wrapper {
   max-width: 1200px;
   margin: 0 auto;
+  padding: 8px 24px;
+  box-sizing: border-box;
+  box-shadow: 0 1px 3px #e0e0e0;
+}
+
+/* Main nav row */
+#nav {
   display: flex;
   align-items: center;
-  padding: 12px 16px;
-  box-sizing: border-box;
-  gap: 32px;
+  justify-content: space-between;
+  gap: 24px;
 }
 
-/* Brand */
+/* ===== Brand (Velu Chits) ===== */
+
+.nav-brand {
+  margin-right: 16px;
+}
+
 .nav-brand a {
+  text-decoration: none;
   font-weight: 700;
   font-size: 20px;
+  color: #1f3ebf;
   white-space: nowrap;
-  color: #3b63fb;
 }
 
-/* Menu layout */
+/* ===== Nav sections (menu items) ===== */
+
 .nav-sections {
   flex: 1;
 }
 
-.nav-sections .default-content-wrapper {
+/* Turn the UL into a horizontal row on desktop */
+.nav-sections .default-content-wrapper > ul {
   display: flex;
+  justify-content: flex-end;
   align-items: center;
+  list-style: none;
   gap: 24px;
+  margin: 0;
+  padding: 0;
 }
 
-/* Menu links */
+.nav-sections .default-content-wrapper > ul > li {
+  margin: 0;
+}
+
+/* Links style */
 .nav-sections a {
   text-decoration: none;
   color: #222;
   font-size: 16px;
   font-weight: 500;
+  padding: 4px 0;
 }
 
+/* Hover / focus state for menu items */
 .nav-sections a:hover,
 .nav-sections a:focus-visible {
-  color: #000;
-  border-bottom: 2px solid #000;
+  color: #1f3ebf;
+  border-bottom: 2px solid #1f3ebf;
 }
 
-/* Hamburger hidden */
+/* Optional tools area (if you ever use it) */
+.nav-tools {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Hamburger – hidden on desktop by default */
 .nav-hamburger {
   display: none;
+}
+
+/* ===== Mobile layout (match header.js isDesktop = (min-width: 900px)) ===== */
+/* stylelint wants “context” range notation, so we use width <= 900px */
+@media (width <= 900px) {
+  .header .nav-wrapper {
+    padding: 8px 16px;
+    box-shadow: 0 1px 2px #e0e0e0;
+  }
+
+  #nav {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  /* Brand left, hamburger right */
+  .nav-brand {
+    order: 1;
+  }
+
+  .nav-hamburger {
+    display: block;
+    order: 2;
+    margin-left: auto;
+  }
+
+  /* Menu block takes full width under brand/hamburger */
+  .nav-sections {
+    order: 3;
+    width: 100%;
+  }
+
+  .nav-sections .default-content-wrapper > ul {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 8px 0 12px;
+    border-top: 1px solid #e0e0e0;
+  }
+
+  /* Hide sections when nav is collapsed (aria-expanded="false") */
+  #nav[aria-expanded="false"] .nav-sections {
+    display: none;
+  }
+
+  /* Show sections when hamburger expands nav */
+  #nav[aria-expanded="true"] .nav-sections {
+    display: block;
+    background: #fff;
+  }
 }
