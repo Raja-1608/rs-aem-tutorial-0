@@ -38,8 +38,8 @@
   font-size: 14px;
 }
 
-.footer-nav a:hover {
-  text-decoration: underline;
+.social-icons a {
+  font-size: 20px;
 }
 
 /* Social icons column */
@@ -48,8 +48,8 @@
   gap: 10px;
 }
 
-.social-icons a {
-  font-size: 20px;
+.footer-nav a:hover {
+  text-decoration: underline;
 }
 
 .social-icons a:hover {
