@@ -9,8 +9,11 @@
 /* Footer Container */
 .footer-container {
   max-width: 1200px;
-  margin: auto;
+  margin: 0 auto;
   padding: 0 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 /* Branding Text */
@@ -23,7 +26,7 @@
 .footer-brand p {
   margin: 8px 0 18px;
   font-size: 15px;
-  color: #e0e0e0;
+  color: #dddddd;
 }
 
 /* Social Icons */
@@ -35,7 +38,7 @@
 
 .social-icons a {
   color: #4d79ff;
-  transition: 0.2s ease;
+  transition: color 0.2s ease;
 }
 
 .social-icons a:hover {
@@ -44,10 +47,10 @@
 
 /* Footer Navigation */
 .footer-nav {
-  margin: 26px 0;
   display: flex;
   flex-wrap: wrap;
   gap: 24px;
+  margin: 26px 0;
   padding: 0;
   list-style: none;
 }
@@ -56,31 +59,32 @@
   text-decoration: none;
   color: #b3c6ff;
   font-size: 15px;
-  transition: 0.2s ease;
+  transition: color 0.2s ease;
 }
 
 .footer-nav a:hover {
-  color: #fff;
+  color: #ffffff;
   text-decoration: underline;
 }
 
 /* Copyright */
 .footer .copyright {
-  margin-top: 28px;
+  margin-top: 12px;
   text-align: center;
-  border-top: 1px solid #333;
   padding-top: 16px;
   font-size: 13px;
-  color: #aaa;
+  color: #aaaaaa;
+  border-top: 1px solid #333333;
 }
 
-/* Responsive */
+/* Mobile Responsive */
 @media (max-width: 600px) {
   .footer-nav {
     flex-direction: column;
-    text-align: center;
     gap: 12px;
+    text-align: center;
   }
+
   .footer-brand,
   .social-icons {
     text-align: center;

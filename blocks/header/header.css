@@ -1,118 +1,84 @@
-/* Sticky header wrapper */
+/* Sticky Header */
 .header {
   position: sticky;
   top: 0;
   z-index: 100;
 }
 
-/* Full-width bar background */
+/* Header background */
 .nav-wrapper {
-  background: #fff;
-  box-shadow: 0 1px 6px rgb(0 0 0 / 10%);
+  background: #ffffff;
+  box-shadow: 0 1px 6px rgba(0 0 0 / 10%);
+  width: 100%;
 }
 
-/* Main nav row */
+/* Navigation Layout */
 #nav {
   max-width: 1200px;
   margin: 0 auto;
   display: flex;
   align-items: center;
+  gap: 32px;
   padding: 12px 16px;
   box-sizing: border-box;
-  gap: 32px;
 }
 
-/* Brand (Velu Chits) */
+/* Brand Label */
 .nav-brand {
-  font-weight: 700;
   font-size: 20px;
+  font-weight: 700;
+  color: #2f4cff;
   white-space: nowrap;
-  color: rgb(46 84 255);
 }
 
-/* Container for menu items */
+/* Nav Section */
 .nav-sections {
   flex: 1;
 }
 
-/* make whatever is inside nav-sections a horizontal row */
 .nav-sections .default-content-wrapper {
   display: flex;
-  justify-content: flex-start;
   align-items: center;
+  justify-content: flex-start;
   gap: 24px;
-  margin: 0;
   padding: 0;
+  margin: 0;
 }
 
-/* Remove bullets if there is a list */
 .nav-sections ul {
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
-/* Each direct child (p, li, etc.) */
 .nav-sections .default-content-wrapper > * {
   margin: 0;
 }
 
-/* Links: horizontal pills are controlled by .nav-sections a */
+/* Links */
 .nav-sections a {
   text-decoration: none;
-  color: #222;
+  color: #222222;
   font-size: 16px;
   font-weight: 500;
-  padding: 8px 16px;
-  border-radius: 20px;
-  background: rgb(46 84 255 / 10%);
+  padding: 4px 0;
 }
 
-/* Link hover */
+/* Hover Effect */
 .nav-sections a:hover,
 .nav-sections a:focus-visible {
-  color: #000;
-  background: rgb(46 84 255 / 14%);
+  color: #000000;
+  border-bottom: 2px solid #000000;
 }
 
-/* Highlight brand (left) — keep it simple and aligned with menu */
-.nav-brand a {
-  text-decoration: none;
-  color: rgb(46 84 255);
-}
-
-/* Tools area (if you ever use it) */
+/* Tools */
 .nav-tools {
   display: flex;
   gap: 12px;
   align-items: center;
 }
 
-/* Hide hamburger on wide screens for this layout */
+/* Hide hamburger in desktop */
 .nav-hamburger {
   display: none;
-}
-
-/* Responsive adjustments */
-@media (max-width: 899px) {
-  /* make header compact on small screens */
-  #nav {
-    gap: 12px;
-    padding: 10px;
-  }
-
-  .nav-sections .default-content-wrapper {
-    gap: 12px;
-    flex-wrap: wrap;
-  }
-
-  .nav-sections a {
-    padding: 6px 10px;
-    border-radius: 14px;
-    background: transparent;
-  }
-
-  .nav-hamburger {
-    display: block;
-  }
 }
