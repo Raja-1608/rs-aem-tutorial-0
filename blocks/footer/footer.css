@@ -1,90 +1,93 @@
-/* Footer base: expand full width and center content */
+/* Footer Wrapper */
 .footer {
-  background: #0b0b0b;
-  color: #eee;
-  padding: 36px 16px;
+  width: 100%;
+  background: #000;
+  padding: 40px 0;
+  color: #fff; /* ✨ Makes text visible */
   box-sizing: border-box;
 }
 
-/* Footer inner container */
-.footer .container {
+/* Footer container alignment */
+.footer .default-content-wrapper {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 16px;
+  padding: 0 24px;
 }
 
-/* Footer columns */
-.footer-columns {
-  display: flex;
-  gap: 40px;
-  align-items: flex-start;
-  justify-content: space-between;
-  flex-wrap: wrap;
-}
-
-/* Single column */
-.footer-column {
-  min-width: 200px;
-  flex: 1 1 220px;
-  margin-bottom: 20px;
-}
-
-/* Footer brand */
-.footer .brand {
+/* Footer title (Velu Chits) */
+.footer h3 {
+  font-size: 24px;
+  margin-bottom: 8px;
   font-weight: 700;
-  font-size: 20px;
   color: #fff;
 }
 
-/* Footer description */
+/* Footer description / tagline */
 .footer p {
-  color: rgb(255 255 255 / 70%);
-  line-height: 1.6;
+  margin: 6px 0 20px;
+  font-size: 15px;
+  color: #e0e0e0;
 }
 
-/* Social links row */
-.footer-social {
+/* Footer nav menu */
+.footer ul {
+  list-style: none;
+  padding: 0;
   display: flex;
-  gap: 12px;
-  align-items: center;
-  margin-top: 12px;
+  gap: 24px;
+  margin: 12px 0;
 }
 
-/* Individual social icon */
-.footer-social a {
-  display: inline-block;
-  width: 36px;
-  height: 36px;
-  border-radius: 6px;
-  background: rgb(255 255 255 / 6%);
-  color: #fff;
-  text-align: center;
-  line-height: 36px;
+/* Footer links */
+.footer a {
   text-decoration: none;
-}
-
-/* Copyright row */
-.footer-bottom {
-  border-top: 1px solid rgb(255 255 255 / 6%);
-  margin-top: 24px;
-  padding-top: 16px;
-  color: rgb(255 255 255 / 60%);
   font-size: 14px;
-  text-align: center;
+  color: #b3c6ff;
 }
 
-/* Responsive: stack columns on small screens */
-@media (max-width: 720px) {
-  .footer-columns {
+.footer a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+/* Social icons spacing */
+.footer .social-icons {
+  margin-top: 12px;
+  display: flex;
+  gap: 18px;
+}
+
+.footer .social-icons a {
+  font-size: 20px;
+  color: #4d79ff;
+}
+
+.footer .social-icons a:hover {
+  color: #fff;
+}
+
+/* Footer copyright */
+.footer .copyright {
+  margin-top: 28px;
+  border-top: 1px solid #333;
+  padding-top: 16px;
+  font-size: 13px;
+  text-align: center;
+  color: #aaa;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .footer ul {
     flex-direction: column;
-    gap: 16px;
+    gap: 12px;
   }
 
-  .footer-column {
-    min-width: 0;
+  .footer .social-icons {
+    justify-content: center;
   }
 
-  .footer-social {
-    justify-content: flex-start;
+  .footer {
+    text-align: center;
   }
 }
