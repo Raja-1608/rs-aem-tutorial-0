@@ -1,9 +1,6 @@
-/* ================================
-   Velu Chits Header - SIMPLE TEXT
-   Matches your current <nav> HTML
-   ================================ */
+/*   Velu Chits Header - FINAL CLEAN */
 
-/* Sticky bar across the top */
+/* Sticky header bar at top */
 .header-wrapper {
   position: sticky;
   top: 0;
@@ -11,20 +8,19 @@
   background: #fff;
 }
 
-/* Inner container (desktop max width) */
+/* Center page content, no box look */
 .header-wrapper .header {
   max-width: 1200px;
   margin: 0 auto;
 }
 
-/* No box or shadow around header */
 .header-wrapper .nav-wrapper {
-  padding: 12px 24px;
+  padding: 8px 16px;
   box-sizing: border-box;
-  /* removed shadow / border to kill the “box” */
+  border-bottom: none;        /* removed line/shadow */
 }
 
-/* Brand + nav + tools in one row */
+/* Main nav row */
 #nav {
   display: flex;
   align-items: center;
@@ -32,13 +28,7 @@
   gap: 24px;
 }
 
-/* =====================
-   Brand (Velu Chits)
-   ===================== */
-
-.nav-brand {
-  margin-right: 16px;
-}
+/*    Brand (Velu Chits) */
 
 .nav-brand .default-content-wrapper p {
   margin: 0;
@@ -46,24 +36,23 @@
 
 .nav-brand a {
   text-decoration: none;
-  font-weight: 700;
-  font-size: 20px;
-  color: #1f3ebf;
+  font-weight: 800;           /* more bold */
+  font-size: 24px;            /* bigger */
+  color: #1f3ebf;             /* same color as before */
   white-space: nowrap;
 }
 
-/* =====================
-   Nav sections (links)
-   ===================== */
+/*   Nav sections (text links)    */
 
+/* Take remaining space */
 .nav-sections {
   flex: 1;
 }
 
-/* Lay out each <p class="button-container"> in a row */
+/* Desktop: make links one centered row */
 .nav-sections .default-content-wrapper {
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;   /* center all links */
   align-items: center;
   flex-wrap: wrap;
   gap: 24px;
@@ -74,30 +63,29 @@
   margin: 0;
 }
 
-/* SIMPLE TEXT LINKS (no pills) */
-.nav-sections .button {
-  background: none;
+/* Simple text links, slightly stronger */
+.header-wrapper .nav-sections .button {
+  background: none !important;
+  border-radius: 0 !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+
   color: #222;
-  padding: 4px 0;
-  border-radius: 0;
   text-decoration: none;
-  font-weight: 500;
-  font-size: 15px;
+  font-size: 16px;
+  font-weight: 600;           /* a bit more highlighted */
   white-space: nowrap;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  transition: color 0.2s ease, border-color 0.2s ease;
-  border-bottom: 2px solid transparent;
 }
 
-.nav-sections .button:hover,
-.nav-sections .button:focus-visible {
+/* Hover / focus */
+.header-wrapper .nav-sections .button:hover,
+.header-wrapper .nav-sections .button:focus-visible {
   color: #1f3ebf;
-  border-bottom-color: #1f3ebf;
+  border-bottom: 2px solid #1f3ebf;
 }
 
-/* Optional tools area (currently empty) */
+/* Tools (right side, currently empty) */
 .nav-tools {
   margin-left: auto;
 }
@@ -107,29 +95,21 @@
   display: none;
 }
 
-/* ===========================
-   Mobile / Tablet Behaviour
-   Matches header.js breakpoint
-   (isDesktop = (min-width: 900px))
-   =========================== */
+/*Mobile / Tablet (<= 900px) */
 
-@media (width <= 900px) {
-  /* Make header full-width so menu covers entire top,
-     not a small centered box */
-  .header-wrapper .header {
-    max-width: none;
-  }
-
+@media (max-width: 900px) {
   .header-wrapper .nav-wrapper {
-    padding: 8px 16px;
+    padding: 8px 12px;
+    border-bottom: none;      /* no line on mobile either */
   }
 
+  /* Allow wrapping of items (brand + button + menu) */
   #nav {
     flex-wrap: wrap;
     gap: 8px;
   }
 
-  /* Top row: Velu Chits + hamburger */
+  /* Order: brand left, hamburger right */
   .nav-brand {
     order: 1;
   }
@@ -140,25 +120,30 @@
     margin-left: auto;
   }
 
-  /* Menu dropdown area */
+  /* Menu as dropdown under header */
   .nav-sections {
     order: 3;
     width: 100%;
-    background: #fff;
   }
 
   .nav-sections .default-content-wrapper {
     flex-direction: column;
     align-items: flex-start;
-    gap: 10px;
+    gap: 12px;
     padding: 8px 0 12px;
+    background: #fff;
     border-top: 1px solid #e0e0e0;
+    width: 100%;             /* full-width white overlay */
   }
 
-  .nav-sections .button {
+  .header-wrapper .nav-sections .button {
     font-size: 15px;
-    padding: 4px 0;
-    border-bottom-width: 1px; /* thinner underline on hover for mobile */
+    border-bottom: none;
+  }
+
+  .header-wrapper .nav-sections .button:hover,
+  .header-wrapper .nav-sections .button:focus-visible {
+    border-bottom: 1px solid #1f3ebf;
   }
 
   /* Hide menu when collapsed */
@@ -166,7 +151,7 @@
     display: none;
   }
 
-  /* Show menu as full-width dropdown when expanded */
+  /* Show menu when expanded */
   #nav[aria-expanded="true"] .nav-sections {
     display: block;
   }
