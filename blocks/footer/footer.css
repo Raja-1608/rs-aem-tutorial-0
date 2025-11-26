@@ -1,50 +1,95 @@
-.footer {
+.footer.block {
   background-color: #222;
   color: #fff;
-  padding: 40px 20px;
 }
 
+/* Outer layout wrapper */
+.footer.block > div {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 24px;
+  box-sizing: border-box;
+}
+
+/* Basic text spacing */
+.footer.block p {
+  margin: 0 0 8px;
+}
+
+/* Brand / tagline column */
+.footer-brand {
+  max-width: 260px;
+}
+
+/* Navigation column */
 .footer-nav {
   display: flex;
-  gap: 16px;
   flex-wrap: wrap;
-  margin-top: 10px;
+  gap: 12px 24px;
 }
 
 .footer-nav a {
   color: #fff;
   text-decoration: none;
+  font-size: 14px;
 }
 
 .footer-nav a:hover {
   text-decoration: underline;
 }
 
+/* Social icons column */
 .social-icons {
   display: flex;
   gap: 10px;
-  margin-top: 15px;
+}
+
+.social-icons a {
+  font-size: 20px;
 }
 
 .social-icons a:hover {
-  opacity: 0.8;
+  transform: translateY(-2px);
 }
 
-/* Responsive Fixes */
+/* Copyright row (second div) */
+.footer.block > div:last-child {
+  border-top: 1px solid rgb(255 255 255 / 15%);
+  margin-top: 16px;
+  padding-top: 12px;
+  flex-basis: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Responsive adjustments */
 @media (width <= 900px) {
-  .footer {
-    text-align: center;
+  .footer.block > div:first-child {
+    flex-direction: column;
+    align-items: flex-start;
   }
 }
 
 @media (width <= 600px) {
-  .footer-nav {
-    flex-direction: column;
+  .footer.block > div {
     align-items: center;
-    gap: 8px;
+    text-align: center;
+  }
+
+  .footer-nav {
+    justify-content: center;
   }
 
   .social-icons {
     justify-content: center;
+  }
+
+  .footer.block > div:last-child {
+    justify-content: center;
+    text-align: center;
   }
 }
