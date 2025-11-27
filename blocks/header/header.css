@@ -1,4 +1,4 @@
-/* Sticky header bar at top */
+/*  Sticky header bar at top  */
 .header-wrapper {
   position: sticky;
   top: 0;
@@ -6,16 +6,17 @@
   background: #fff;
 }
 
-/* Center page content, no box look */
+/* Center page content */
 .header-wrapper .header {
   max-width: 1200px;
   margin: 0 auto;
 }
 
+/* Main wrapper row */
 .header-wrapper .nav-wrapper {
-  padding: 8px 16px;
+  padding: 14px 32px;           /* a bit taller & wider => better alignment with hero */
   box-sizing: border-box;
-  border-bottom: none;        /* removed line/shadow */
+  border-bottom: none;
 }
 
 /* Main nav row */
@@ -26,7 +27,7 @@
   gap: 24px;
 }
 
-/*    Brand (Velu Chits) */
+/*  Brand (Velu Chits)  */
 
 .nav-brand .default-content-wrapper p {
   margin: 0;
@@ -34,26 +35,25 @@
 
 .nav-brand a {
   text-decoration: none;
-  font-weight: 800;           /* more bold */
-  font-size: 24px;            /* bigger */
-  color: #1f3ebf;             /* same color as before */
+  font-weight: 800;
+  font-size: 26px;              /* slightly bigger for premium feel */
+  color: #1f3ebf;
   white-space: nowrap;
 }
 
-/*   Nav sections (text links)    */
+/*  Nav sections (links)  */
 
-/* Take remaining space */
 .nav-sections {
   flex: 1;
 }
 
-/* Desktop: make links one centered row */
+/* Desktop: links row */
 .nav-sections .default-content-wrapper {
   display: flex;
-  justify-content: center;   /* center all links */
+  justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  gap: 24px;
+  gap: 28px;
   margin: 0;
 }
 
@@ -61,52 +61,68 @@
   margin: 0;
 }
 
-/* Simple text links, slightly stronger */
+/* Base link style */
 .header-wrapper .nav-sections .button {
+  position: relative;           /* for underline effect */
   background: none !important;
   border-radius: 0 !important;
   border: none !important;
   box-shadow: none !important;
   padding: 0 !important;
-  color: #222;
+  color: #333;                  /* stronger contrast */
   text-decoration: none;
-  font-size: 16px;
-  font-weight: 600;           /* a bit more highlighted */
+  font-size: 17px;
+  font-weight: 600;
   white-space: nowrap;
 }
 
-/* Hover / focus */
-.header-wrapper .nav-sections .button:hover,
-.header-wrapper .nav-sections .button:focus-visible {
-  color: #1f3ebf;
-  border-bottom: 2px solid #1f3ebf;
+/* Underline bar (hidden by default) */
+.header-wrapper .nav-sections .button::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0;
+  height: 2px;
+  background: #1f3ebf;
+  transition: width 0.18s ease-out;
 }
 
-/* Tools (right side, currently empty) */
+/* Hover / focus / active = stronger, clearer */
+.header-wrapper .nav-sections .button:hover,
+.header-wrapper .nav-sections .button:focus-visible,
+.header-wrapper .nav-sections .button[aria-current="page"] {
+  color: #1f3ebf;
+}
+
+.header-wrapper .nav-sections .button:hover::after,
+.header-wrapper .nav-sections .button:focus-visible::after,
+.header-wrapper .nav-sections .button[aria-current="page"]::after {
+  width: 100%;
+}
+
+/* Tools (right side, currently unused) */
 .nav-tools {
   margin-left: auto;
 }
 
-/* Hamburger only for mobile */
+/*  Hamburger only for mobile  */
 .nav-hamburger {
   display: none;
 }
 
-/* Mobile / Tablet (<= 900px) */
-
+/*  Mobile / Tablet (<= 900px)  */
 @media (width <= 900px) {
   .header-wrapper .nav-wrapper {
-    padding: 8px 12px;
-    border-bottom: none;      /* no line on mobile either */
+    padding: 10px 16px;
+    border-bottom: none;
   }
 
-  /* Allow wrapping of items (brand + button + menu) */
   #nav {
     flex-wrap: wrap;
     gap: 8px;
   }
 
-  /* Order: brand left, hamburger right */
   .nav-brand {
     order: 1;
   }
@@ -117,7 +133,6 @@
     margin-left: auto;
   }
 
-  /* Menu as dropdown under header */
   .nav-sections {
     order: 3;
     width: 100%;
@@ -130,17 +145,15 @@
     padding: 8px 0 12px;
     background: #fff;
     border-top: 1px solid #e0e0e0;
-    width: 100%;             /* full-width white overlay */
+    width: 100%;
   }
 
   .header-wrapper .nav-sections .button {
-    font-size: 15px;
-    border-bottom: none;
+    font-size: 16px;
   }
 
-  .header-wrapper .nav-sections .button:hover,
-  .header-wrapper .nav-sections .button:focus-visible {
-    border-bottom: 1px solid #1f3ebf;
+  .header-wrapper .nav-sections .button::after {
+    bottom: -2px;
   }
 
   /* Hide menu when collapsed */
