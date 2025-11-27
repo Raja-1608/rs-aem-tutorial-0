@@ -1,5 +1,3 @@
-/*   Velu Chits Header - FINAL CLEAN */
-
 /* Sticky header bar at top */
 .header-wrapper {
   position: sticky;
@@ -70,7 +68,6 @@
   border: none !important;
   box-shadow: none !important;
   padding: 0 !important;
-
   color: #222;
   text-decoration: none;
   font-size: 16px;
@@ -95,9 +92,9 @@
   display: none;
 }
 
-/*Mobile / Tablet (<= 900px) */
+/* Mobile / Tablet (<= 900px) */
 
-@media (max-width: 900px) {
+@media (width <= 900px) {
   .header-wrapper .nav-wrapper {
     padding: 8px 12px;
     border-bottom: none;      /* no line on mobile either */

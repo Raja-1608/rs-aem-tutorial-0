@@ -33,7 +33,7 @@
 }
 
 /* Basic responsive tweak */
-@media (max-width: 768px) {
+@media (width <= 768px) {
   .vc-header {
     padding: 12px 16px;
     flex-direction: column;
