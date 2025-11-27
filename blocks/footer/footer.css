@@ -7,7 +7,6 @@
 .footer-container {
   max-width: 1200px;
   margin: 0 auto;
-
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 80px;
@@ -86,9 +85,8 @@
   background: #4b8dff;
 }
 
-
 /* ------------------ Mobile ------------------ */
-@media (max-width: 768px) {
+@media (max-width <= 768px) {
   .footer-container {
     grid-template-columns: 1fr;
     text-align: left;
