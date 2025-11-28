@@ -1,0 +1,41 @@
+.features {
+  padding: 40px 32px;
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.features > div {
+  background-color: #f5f7fb;
+  border-radius: 10px;
+  padding: 20px 18px;
+  text-align: left;
+}
+
+.features p:first-child {
+  font-size: 28px;  /* emoji icon */
+  margin: 0 0 8px;
+}
+
+.features h3 {
+  margin: 0 0 8px;
+  font-size: 18px;
+  font-weight: 700;
+  color: #1f3ebf;
+}
+
+.features p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #444;
+}
+
+@media (width <= 900px) {
+  .features {
+    grid-template-columns: 1fr;
+    padding: 28px 16px;
+  }
+}
