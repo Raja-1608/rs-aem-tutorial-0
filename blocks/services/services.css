@@ -16,7 +16,7 @@
 .services p {
   font-size: 16px;
   max-width: 600px;
-  margin: 0 auto 40px auto;
+  margin: 0 auto 40px ;
   color: rgb(80 80 80);
   line-height: 1.5;
 }
