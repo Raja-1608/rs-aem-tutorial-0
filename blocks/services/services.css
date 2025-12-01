@@ -10,7 +10,7 @@
 .services > div {
   border-radius: 12px;
   background-color: #fff;
-  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.06);
+  box-shadow: 0 8px 20px rgb(15, 23, 42, 6%);
   padding: 20px 18px;
 }
 
