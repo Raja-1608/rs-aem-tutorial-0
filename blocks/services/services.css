@@ -1,0 +1,48 @@
+.services {
+  max-width: 1100px;
+  margin: 40px auto;
+  padding: 0 32px 40px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.services > div {
+  border-radius: 12px;
+  background-color: #fff;
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.06);
+  padding: 20px 18px;
+}
+
+.services h3 {
+  margin: 0 0 10px;
+  font-size: 18px;
+  font-weight: 700;
+  color: #111827;
+}
+
+.services p {
+  margin: 0 0 10px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #4b5563;
+}
+
+.services a {
+  font-size: 14px;
+  text-decoration: none;
+  color: #1f3ebf;
+  font-weight: 600;
+}
+
+.services a:hover {
+  text-decoration: underline;
+}
+
+@media (width <= 900px) {
+  .services {
+    grid-template-columns: 1fr;
+    padding: 0 16px 32px;
+    margin-top: 28px;
+  }
+}
