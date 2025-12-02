@@ -1,39 +1,27 @@
-# Velu Chits
-
-Welcome to Velu Chits — Trusted for over 50 years.
+<!-- markdownlint-disable -->
 
 ---
+title: Velu Chits - Smart Savings for Everyone
+---
+
+# Velu Chits – Smart Savings for Everyone
 
 ## Your Smart Savings Journey Starts Here
 
-![hero](hero.jpg)
-
----
+<section data-block-name="hero" data-block-status="loaded"></section>
 
 ## Why Choose Velu Chits?
 
-### ⭐ Safe & Secure
+<section data-block-name="features" data-block-status="loaded"></section>
 
-Your investment is always protected.
+## Our Achievements
 
-### ⏱ Fast Processing
+<section data-block-name="stats" data-block-status="loaded"></section>
 
-Quick and hassle-free onboarding.
+## Our Chit Services
 
-### 🪙 Smart Growth
+<section data-block-name="services" data-block-status="loaded"></section>
 
-Better returns tailored to your needs.
+## Latest Updates
 
----
-
-## Our Services
-
-- Regular Chit Plans
-- Digital Subscription
-- Online Auction Access
-
----
-
-## Latest Blog Highlights
-
-Stay updated with the latest in financial growth and chit solutions.
+<section data-block-name="blog" data-block-status="loaded"></section>
