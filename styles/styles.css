@@ -47,6 +47,7 @@
   }
 }
 /* These selectors match the tutorial "Congrats / Columns" sections */
+
 main .section.columns-container,
 main .section.highlight.cards-container {
   display: none !important;
