@@ -1,27 +1,36 @@
 <!-- markdownlint-disable -->
 
----
 title: Velu Chits - Smart Savings for Everyone
 ---
 
 # Velu Chits – Smart Savings for Everyone
 
+Welcome to Velu Chits – a trusted partner for smart and disciplined savings through chit funds.
+
 ## Your Smart Savings Journey Starts Here
 
-<section data-block-name="hero" data-block-status="loaded"></section>
+<section data-block-name="hero"></section>
+
+---
 
 ## Why Choose Velu Chits?
 
-<section data-block-name="features" data-block-status="loaded"></section>
+<section data-block-name="features"></section>
 
-## Our Achievements
+---
 
-<section data-block-name="stats" data-block-status="loaded"></section>
+## Our Strength in Numbers
 
-## Our Chit Services
+<section data-block-name="stats"></section>
 
-<section data-block-name="services" data-block-status="loaded"></section>
+---
 
-## Latest Updates
+## Our Services
 
-<section data-block-name="blog" data-block-status="loaded"></section>
+<section data-block-name="services"></section>
+
+---
+
+## Latest from Velu Chits
+
+<section data-block-name="blog"></section>
