@@ -1,2 +1,2 @@
 mountpoints:
-  /: .
+  /: https://github.com/your-user/your-repo/main
