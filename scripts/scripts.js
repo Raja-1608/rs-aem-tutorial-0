@@ -15,6 +15,7 @@ import {
 
 /**
  * Builds hero block and prepends to main in a new section.
+ * (kept from boilerplate in case we use it later)
  * @param {Element} main The container element
  */
 function buildHeroBlock(main) {
@@ -34,7 +35,9 @@ function buildHeroBlock(main) {
 async function loadFonts() {
   await loadCSS(`${window.hlx.codeBasePath}/styles/fonts.css`);
   try {
-    if (!window.location.hostname.includes('localhost')) sessionStorage.setItem('fonts-loaded', 'true');
+    if (!window.location.hostname.includes('localhost')) {
+      sessionStorage.setItem('fonts-loaded', 'true');
+    }
   } catch (e) {
     // do nothing
   }
@@ -72,11 +75,10 @@ function buildAutoBlocks(main) {
 }
 
 /**
- * Hard override of the home page content so we are not dependent
- * on external authored content (Drive/AEM).
- * This rebuilds <main> with our Velu Chits layout.
- * @param {Element} main The main element
- * @returns {boolean} true if we overrode the page
+ * Build complete Velu Chits home page inside <main>
+ * with full-width hero banner and sections.
+ * @param {Element} main
+ * @returns {boolean}
  */
 function overrideHomePage(main) {
   if (!main) return false;
@@ -87,30 +89,27 @@ function overrideHomePage(main) {
     return false;
   }
 
-  // Clear whatever default "Congrats..." content is there
+  // Clear whatever default content is there
   main.innerHTML = '';
 
   const wrapper = document.createElement('div');
   wrapper.className = 'vc-page';
 
   wrapper.innerHTML = `
-    <section class="vc-hero">
-      <div class="vc-hero-text">
-        <h1>Velu Chits – Smart Savings for Everyone</h1>
-        <p>Welcome to Velu Chits – a trusted partner for smart and disciplined savings through chit funds.</p>
-        <a href="#services" class="vc-btn-primary">Start Your Savings Journey</a>
-      </div>
-      <div class="vc-hero-image">
-        <!-- 🔁 Update this path to your real hero image file in the repo -->
-        <img src="/icons/hero.png" alt="Velu Chits Hero" loading="lazy">
+    <!-- Full-width hero banner with overlay text -->
+    <section class="vc-hero-banner">
+      <div class="vc-hero-overlay">
+        <h1>Your Smart Savings Journey Starts Here</h1>
       </div>
     </section>
 
-    <section class="vc-section" id="why">
-      <h2>Your Smart Savings Journey Starts Here</h2>
-      <p>Flexible chit groups, transparent bidding, and secure payouts tailored for working professionals and families.</p>
+    <!-- Intro text under hero -->
+    <section class="vc-section vc-section-intro" id="intro">
+      <h2>Velu Chits – Smart Savings for Everyone</h2>
+      <p>Welcome to Velu Chits – a trusted partner for smart and disciplined savings through chit funds.</p>
     </section>
 
+    <!-- Why choose section -->
     <section class="vc-section" id="features">
       <h2>Why Choose Velu Chits?</h2>
       <ul class="vc-grid">
@@ -129,6 +128,7 @@ function overrideHomePage(main) {
       </ul>
     </section>
 
+    <!-- Stats section -->
     <section class="vc-section" id="stats">
       <h2>Our Strength in Numbers</h2>
       <div class="vc-stats">
@@ -138,6 +138,7 @@ function overrideHomePage(main) {
       </div>
     </section>
 
+    <!-- Services section -->
     <section class="vc-section" id="services">
       <h2>Our Services</h2>
       <ul class="vc-grid">
@@ -156,6 +157,7 @@ function overrideHomePage(main) {
       </ul>
     </section>
 
+    <!-- Blog / latest section -->
     <section class="vc-section" id="blog">
       <h2>Latest from Velu Chits</h2>
       <p>Coming soon: tips on savings, chit fund basics, and financial discipline.</p>
@@ -167,85 +169,88 @@ function overrideHomePage(main) {
 }
 
 /**
- * Build custom Velu Chits header if header is empty.
+ * Inject custom Velu Chits header and footer directly into
+ * the <header> and <footer> elements.
  * @param {Document} doc
  */
-function buildVeluHeader(doc) {
+function injectVeluHeaderFooter(doc) {
   const header = doc.querySelector('header');
-  if (!header) return;
+  if (header) {
+    header.innerHTML = `
+      <div class="vc-header">
+        <a href="/" class="vc-brand">Velu Chits</a>
 
-  // if something already there, don't override
-  if (header.querySelector('.vc-header')) return;
+        <button class="vc-nav-toggle" aria-label="Toggle navigation">
+          ☰
+        </button>
 
-  header.innerHTML = `
-    <div class="vc-header">
-      <a href="/" class="vc-brand">Velu Chits</a>
-      <button class="vc-nav-toggle" aria-label="Toggle navigation">
-        ☰
-      </button>
-      <nav class="vc-menu">
-        <a class="vc-menu-link" href="#why">Why Us</a>
-        <a class="vc-menu-link" href="#services">Services</a>
-        <a class="vc-menu-link" href="#stats">Stats</a>
-        <a class="vc-menu-link" href="#blog">Blog</a>
-        <a class="vc-menu-link" href="#contact">Contact</a>
-      </nav>
-    </div>
-  `;
-}
+        <nav class="vc-menu">
+          <a class="vc-menu-link" href="#features">Why Us</a>
+          <a class="vc-menu-link" href="#services">Services</a>
+          <a class="vc-menu-link" href="#stats">Stats</a>
+          <a class="vc-menu-link" href="#blog">Blog</a>
+          <a class="vc-menu-link" href="#contact">Contact</a>
+        </nav>
+      </div>
+    `;
+  }
 
-/**
- * Build custom Velu Chits footer if footer is empty.
- * @param {Document} doc
- */
-function buildVeluFooter(doc) {
   const footer = doc.querySelector('footer');
-  if (!footer) return;
-
-  if (footer.querySelector('.vc-footer')) return;
-
-  const year = new Date().getFullYear();
-
-  footer.innerHTML = `
-    <div class="vc-footer">
-      <div class="vc-footer-top">
-        <div class="vc-footer-brand">
-          <div class="vc-footer-title">Velu Chits</div>
-          <p>Smart and disciplined savings through transparent chit funds.</p>
+  if (footer) {
+    footer.innerHTML = `
+      <div class="vc-footer">
+        <div class="vc-footer-inner">
+          <div class="vc-footer-company">
+            <h2>Velu Chit Pvt. Ltd.</h2>
+            <p>Smart, disciplined chit savings for everyone.</p>
+            <ul class="vc-footer-contact-list">
+              <li class="vc-footer-contact-item">
+                <div class="vc-footer-icon"><span>📍</span></div>
+                <div class="vc-footer-contact-lines">
+                  <span>RS Tower, Raja Nagar</span>
+                  <span>Chennai, Tamil Nadu – 123321</span>
+                  <span>India</span>
+                </div>
+              </li>
+              <li class="vc-footer-contact-item">
+                <div class="vc-footer-icon"><span>📞</span></div>
+                <div class="vc-footer-contact-lines">
+                  <span>+91 98765 43210</span>
+                </div>
+              </li>
+              <li class="vc-footer-contact-item">
+                <div class="vc-footer-icon"><span>✉️</span></div>
+                <div class="vc-footer-contact-lines">
+                  <span>support@veluchit.com</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="vc-footer-about" id="contact">
+            <h3>About the company</h3>
+            <p>With 50+ years of excellence, Velu Chit continues to serve customers with honest, secure investments and personal support. Trust built over decades — and we proudly grow that trust every day.</p>
+            <div class="vc-footer-social">
+              <a href="#" class="vc-footer-social-link" aria-label="Facebook">Fb</a>
+              <a href="#" class="vc-footer-social-link" aria-label="X">X</a>
+              <a href="#" class="vc-footer-social-link" aria-label="LinkedIn">In</a>
+              <a href="#" class="vc-footer-social-link" aria-label="GitHub">Gh</a>
+            </div>
+          </div>
         </div>
-        <div class="vc-footer-columns">
-          <div class="vc-footer-col">
-            <h3>Quick Links</h3>
-            <a href="#why">Why Us</a>
-            <a href="#services">Services</a>
-            <a href="#stats">Stats</a>
-            <a href="#blog">Latest</a>
-          </div>
-          <div class="vc-footer-col">
-            <h3>Contact</h3>
-            <p>Phone: +91-XXXXXXXXXX</p>
-            <p>Email: info@veluchits.com</p>
-          </div>
-          <div class="vc-footer-col">
-            <h3>Location</h3>
-            <p>Velu Chits Office</p>
-            <p>Your City, India</p>
-          </div>
+        <div class="vc-footer-bottom">
+          <span>© 2025 Velu Chits. All rights reserved.</span>
         </div>
       </div>
-      <div class="vc-footer-bottom">
-        <span>© ${year} Velu Chits. All rights reserved.</span>
-      </div>
-    </div>
-  `;
+    `;
+  }
 }
 
 /**
- * Setup mobile header toggle if our custom header is present.
+ * Setup mobile header toggle when our header exists.
  * @param {Document} doc
  */
 function initVeluHeader(doc) {
-  const header = doc.querySelector('header');
+  const header = doc.querySelector('.vc-header');
   if (!header) return;
 
   const toggle = header.querySelector('.vc-nav-toggle');
@@ -263,14 +268,11 @@ function initVeluHeader(doc) {
  */
 // eslint-disable-next-line import/prefer-default-export
 export function decorateMain(main) {
-  // First, replace the default tutorial content with our own homepage
   const overridden = overrideHomePage(main);
 
-  // Basic decorations still safe to run
   decorateButtons(main);
   decorateIcons(main);
 
-  // If we overrode the page, we can skip auto hero/block logic
   if (overridden) {
     return;
   }
@@ -287,6 +289,10 @@ export function decorateMain(main) {
 async function loadEager(doc) {
   document.documentElement.lang = 'en';
   decorateTemplateAndTheme();
+
+  // inject our header + footer early
+  injectVeluHeaderFooter(doc);
+
   const main = doc.querySelector('main');
   if (main) {
     decorateMain(main);
@@ -295,7 +301,6 @@ async function loadEager(doc) {
   }
 
   try {
-    /* if desktop (proxy for fast connection) or fonts already loaded, load fonts.css */
     if (window.innerWidth >= 900 || sessionStorage.getItem('fonts-loaded')) {
       loadFonts();
     }
@@ -316,16 +321,11 @@ async function loadLazy(doc) {
   const element = hash ? doc.getElementById(hash.substring(1)) : false;
   if (hash && element) element.scrollIntoView();
 
-  // Try standard header/footer loading (no harm if it fails)
-  loadHeader(doc.querySelector('header'));
-  loadFooter(doc.querySelector('footer'));
+  // we control header/footer in JS, so skip AEM versions
+  // loadHeader(doc.querySelector('header'));
+  // loadFooter(doc.querySelector('footer'));
 
-  // After header/footer attempt to load, ensure our custom ones exist
-  window.setTimeout(() => {
-    buildVeluHeader(doc);
-    buildVeluFooter(doc);
-    initVeluHeader(doc);
-  }, 500);
+  initVeluHeader(doc);
 
   loadCSS(`${window.hlx.codeBasePath}/styles/lazy-styles.css`);
   loadFonts();
@@ -338,7 +338,6 @@ async function loadLazy(doc) {
 function loadDelayed() {
   // eslint-disable-next-line import/no-cycle
   window.setTimeout(() => import('./delayed.js'), 3000);
-  // load anything that can be postponed to the latest here
 }
 
 async function loadPage() {

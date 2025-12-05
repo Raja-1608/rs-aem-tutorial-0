@@ -3,54 +3,54 @@
 .vc-page {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 2rem 1.5rem 4rem;
+  padding: 0 1.5rem 4rem;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
-.vc-hero {
-  display: grid;
-  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
-  gap: 2.5rem;
-  align-items: center;
-  margin-bottom: 3rem;
+/* Full-width hero banner */
+.vc-hero-banner {
+  margin: 0 calc(50% - 50vw) 3rem;
+  height: 280px;
+  background-image: url("/icons/hero.png"); /* 🔁 change this path if your hero image is elsewhere */
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
 }
 
-.vc-hero-text h1 {
-  font-size: 2.2rem;
-  margin-bottom: 1rem;
-}
-
-.vc-hero-text p {
-  font-size: 1rem;
-  line-height: 1.6;
-  margin-bottom: 1.5rem;
-}
-
-.vc-btn-primary {
-  display: inline-block;
-  padding: 0.75rem 1.5rem;
-  border-radius: 999px;
-  text-decoration: none;
-  font-weight: 600;
-  border: none;
-  cursor: pointer;
-  background: #004aad;
-  color: #fff;
-}
-
-.vc-btn-primary:hover {
-  opacity: 0.9;
-}
-
-.vc-hero-image img {
+.vc-hero-overlay {
   width: 100%;
-  height: auto;
-  border-radius: 1rem;
-  object-fit: cover;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0 10%;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0.6),
+    rgba(0, 0, 0, 0.05)
+  );
+  box-sizing: border-box;
 }
+
+.vc-hero-overlay h1 {
+  max-width: 620px;
+  font-size: 2.6rem;
+  line-height: 1.2;
+  color: #fff;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.55);
+  margin: 0;
+}
+
+/* Intro + rest of sections */
 
 .vc-section {
   margin-bottom: 3rem;
+}
+
+.vc-section-intro h2 {
+  font-size: 1.8rem;
 }
 
 .vc-section h2 {
@@ -111,7 +111,6 @@
   z-index: 1000;
 }
 
-/* Brand / Logo text */
 .vc-brand {
   font-size: 1.8rem;
   font-weight: 700;
@@ -125,14 +124,12 @@
   opacity: 0.85;
 }
 
-/* Menu container */
 .vc-menu {
   display: flex;
   align-items: center;
   gap: 36px;
 }
 
-/* Individual menu links */
 .vc-menu-link {
   font-weight: 600;
   text-decoration: none;
@@ -146,7 +143,6 @@
   text-decoration: underline;
 }
 
-/* Mobile Navigation button */
 .vc-nav-toggle {
   display: none;
   font-size: 28px;
@@ -156,8 +152,26 @@
   padding: 0;
 }
 
-/* Responsive Header */
-@media (max-width: 768px) {
+/* modern "context" media range syntax */
+@media (width <= 768px) {
+  .vc-hero-banner {
+    height: 220px;
+  }
+
+  .vc-hero-overlay {
+    padding: 0 1.5rem;
+    justify-content: center;
+  }
+
+  .vc-hero-overlay h1 {
+    font-size: 2rem;
+    text-align: center;
+  }
+
+  .vc-page {
+    padding: 0 1rem 3rem;
+  }
+
   .vc-header {
     padding: 14px 20px;
   }
@@ -182,7 +196,6 @@
     transition: all 0.35s ease;
   }
 
-  /* Active mobile menu */
   .vc-menu.open {
     transform: translateY(0);
     opacity: 1;
@@ -195,85 +208,122 @@
   }
 }
 
-/*   Velu Chits Footer Styling  */
+/*  Velu Chits Footer Styling (dark design) */
 
 .vc-footer {
-  border-top: 1px solid #e5e5e5;
-  background: #fafafa;
-  padding: 2.5rem 1.5rem 1.5rem;
+  background: #242b33;
+  color: #fff;
+  padding: 3rem 1.5rem 2rem;
 }
 
-.vc-footer-top {
+.vc-footer-inner {
   max-width: 1200px;
-  margin: 0 auto 1.5rem;
+  margin: 0 auto 2rem;
   display: grid;
-  grid-template-columns: minmax(0, 1.3fr) repeat(2, minmax(0, 1fr));
-  gap: 2rem;
+  grid-template-columns: minmax(0, 1.3fr) minmax(0, 1.5fr);
+  gap: 3rem;
 }
 
-.vc-footer-brand h2 {
-  margin: 0 0 0.5rem;
-  font-size: 1.4rem;
+.vc-footer-company h2 {
+  margin: 0 0 0.75rem;
+  font-size: 1.6rem;
 }
 
-.vc-footer-brand p {
+.vc-footer-company p {
+  margin: 0 0 1.5rem;
+  max-width: 360px;
+  font-size: 0.95rem;
+}
+
+.vc-footer-contact-list {
+  list-style: none;
+  padding: 0;
   margin: 0;
-  max-width: 320px;
-  font-size: 0.95rem;
-}
-
-.vc-footer-links h3,
-.vc-footer-contact h3 {
-  margin-bottom: 0.75rem;
-  font-size: 1rem;
-}
-
-.vc-footer-links a {
-  display: block;
-  font-size: 0.95rem;
-  margin-bottom: 0.25rem;
-  text-decoration: none;
-  color: #1c1c1c;
-}
-
-.vc-footer-links a:hover {
-  text-decoration: underline;
-}
-
-.vc-footer-contact p {
-  margin: 0 0 0.25rem;
-  font-size: 0.95rem;
-}
-
-.vc-footer-bottom {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding-top: 0.75rem;
-  border-top: 1px solid #e0e0e0;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  display: grid;
   gap: 1rem;
-  font-size: 0.9rem;
 }
+
+.vc-footer-contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  font-size: 0.95rem;
+}
+
+.vc-footer-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  background: #2f3844;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.vc-footer-icon span {
+  font-size: 1.1rem;
+}
+
+.vc-footer-contact-lines span {
+  display: block;
+}
+
+/* About column */
+
+.vc-footer-about h3 {
+  margin: 0 0 0.75rem;
+  font-size: 1.1rem;
+}
+
+.vc-footer-about p {
+  margin: 0 0 1.5rem;
+  font-size: 0.95rem;
+  max-width: 520px;
+}
+
+/* Social links (less specific selectors first) */
 
 .vc-footer-social {
   display: flex;
   gap: 0.75rem;
 }
 
-.vc-footer-social a {
-  text-decoration: none;
+.vc-footer-social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 6px;
+  background: #2f3844;
+  color: #fff;
   font-size: 0.9rem;
-  color: #004aad;
+  text-decoration: none;
 }
 
-.vc-footer-social a:hover {
-  text-decoration: underline;
+.vc-footer-social-link:hover {
+  background: #3b4655;
 }
 
-@media (max-width: 768px) {
-  .vc-footer-top {
+/* Bottom bar */
+
+.vc-footer-bottom {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-top: 0.75rem;
+  border-top: 1px solid #37414f;
+  font-size: 0.9rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Responsive footer */
+
+@media (width <= 768px) {
+  .vc-footer-inner {
     grid-template-columns: 1fr;
   }
 
