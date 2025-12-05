@@ -1,4 +1,4 @@
-/*   Velu Chits custom layout  */
+/*  Velu Chits main layout */
 
 .vc-page {
   max-width: 1200px;
@@ -104,7 +104,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 18px 52px;
-  background-color: #ffffff;
+  background-color: #fff;
   border-bottom: 1px solid #e5e5e5;
   position: sticky;
   top: 0;
@@ -172,7 +172,7 @@
     right: 0;
     width: 100%;
     flex-direction: column;
-    background: #ffffff;
+    background: #fff;
     padding: 16px 20px;
     border-top: 1px solid #ddd;
     gap: 20px;
@@ -192,5 +192,93 @@
   .vc-menu-link {
     font-size: 1.1rem;
     width: 100%;
+  }
+}
+
+/*   Velu Chits Footer Styling  */
+
+.vc-footer {
+  border-top: 1px solid #e5e5e5;
+  background: #fafafa;
+  padding: 2.5rem 1.5rem 1.5rem;
+}
+
+.vc-footer-top {
+  max-width: 1200px;
+  margin: 0 auto 1.5rem;
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) repeat(2, minmax(0, 1fr));
+  gap: 2rem;
+}
+
+.vc-footer-brand h2 {
+  margin: 0 0 0.5rem;
+  font-size: 1.4rem;
+}
+
+.vc-footer-brand p {
+  margin: 0;
+  max-width: 320px;
+  font-size: 0.95rem;
+}
+
+.vc-footer-links h3,
+.vc-footer-contact h3 {
+  margin-bottom: 0.75rem;
+  font-size: 1rem;
+}
+
+.vc-footer-links a {
+  display: block;
+  font-size: 0.95rem;
+  margin-bottom: 0.25rem;
+  text-decoration: none;
+  color: #1c1c1c;
+}
+
+.vc-footer-links a:hover {
+  text-decoration: underline;
+}
+
+.vc-footer-contact p {
+  margin: 0 0 0.25rem;
+  font-size: 0.95rem;
+}
+
+.vc-footer-bottom {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-top: 0.75rem;
+  border-top: 1px solid #e0e0e0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  font-size: 0.9rem;
+}
+
+.vc-footer-social {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.vc-footer-social a {
+  text-decoration: none;
+  font-size: 0.9rem;
+  color: #004aad;
+}
+
+.vc-footer-social a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .vc-footer-top {
+    grid-template-columns: 1fr;
+  }
+
+  .vc-footer-bottom {
+    flex-direction: column;
+    align-items: flex-start;
   }
 }

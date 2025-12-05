@@ -167,6 +167,97 @@ function overrideHomePage(main) {
 }
 
 /**
+ * Build custom Velu Chits header if header is empty.
+ * @param {Document} doc
+ */
+function buildVeluHeader(doc) {
+  const header = doc.querySelector('header');
+  if (!header) return;
+
+  // if something already there, don't override
+  if (header.querySelector('.vc-header')) return;
+
+  header.innerHTML = `
+    <div class="vc-header">
+      <a href="/" class="vc-brand">Velu Chits</a>
+      <button class="vc-nav-toggle" aria-label="Toggle navigation">
+        ☰
+      </button>
+      <nav class="vc-menu">
+        <a class="vc-menu-link" href="#why">Why Us</a>
+        <a class="vc-menu-link" href="#services">Services</a>
+        <a class="vc-menu-link" href="#stats">Stats</a>
+        <a class="vc-menu-link" href="#blog">Blog</a>
+        <a class="vc-menu-link" href="#contact">Contact</a>
+      </nav>
+    </div>
+  `;
+}
+
+/**
+ * Build custom Velu Chits footer if footer is empty.
+ * @param {Document} doc
+ */
+function buildVeluFooter(doc) {
+  const footer = doc.querySelector('footer');
+  if (!footer) return;
+
+  if (footer.querySelector('.vc-footer')) return;
+
+  const year = new Date().getFullYear();
+
+  footer.innerHTML = `
+    <div class="vc-footer">
+      <div class="vc-footer-top">
+        <div class="vc-footer-brand">
+          <div class="vc-footer-title">Velu Chits</div>
+          <p>Smart and disciplined savings through transparent chit funds.</p>
+        </div>
+        <div class="vc-footer-columns">
+          <div class="vc-footer-col">
+            <h3>Quick Links</h3>
+            <a href="#why">Why Us</a>
+            <a href="#services">Services</a>
+            <a href="#stats">Stats</a>
+            <a href="#blog">Latest</a>
+          </div>
+          <div class="vc-footer-col">
+            <h3>Contact</h3>
+            <p>Phone: +91-XXXXXXXXXX</p>
+            <p>Email: info@veluchits.com</p>
+          </div>
+          <div class="vc-footer-col">
+            <h3>Location</h3>
+            <p>Velu Chits Office</p>
+            <p>Your City, India</p>
+          </div>
+        </div>
+      </div>
+      <div class="vc-footer-bottom">
+        <span>© ${year} Velu Chits. All rights reserved.</span>
+      </div>
+    </div>
+  `;
+}
+
+/**
+ * Setup mobile header toggle if our custom header is present.
+ * @param {Document} doc
+ */
+function initVeluHeader(doc) {
+  const header = doc.querySelector('header');
+  if (!header) return;
+
+  const toggle = header.querySelector('.vc-nav-toggle');
+  const menu = header.querySelector('.vc-menu');
+  if (!toggle || !menu) return;
+
+  toggle.addEventListener('click', () => {
+    menu.classList.toggle('open');
+  });
+}
+
+/**
  * Decorates the main element.
  * @param {Element} main The main element
  */
@@ -225,8 +316,16 @@ async function loadLazy(doc) {
   const element = hash ? doc.getElementById(hash.substring(1)) : false;
   if (hash && element) element.scrollIntoView();
 
+  // Try standard header/footer loading (no harm if it fails)
   loadHeader(doc.querySelector('header'));
   loadFooter(doc.querySelector('footer'));
+
+  // After header/footer attempt to load, ensure our custom ones exist
+  window.setTimeout(() => {
+    buildVeluHeader(doc);
+    buildVeluFooter(doc);
+    initVeluHeader(doc);
+  }, 500);
 
   loadCSS(`${window.hlx.codeBasePath}/styles/lazy-styles.css`);
   loadFonts();
