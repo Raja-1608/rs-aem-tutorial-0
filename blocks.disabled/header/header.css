@@ -1,0 +1,168 @@
+/* ===== Sticky header bar at top ===== */
+.header-wrapper {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #fff;
+}
+
+/* Center page content */
+.header-wrapper .header {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Main wrapper row */
+.header-wrapper .nav-wrapper {
+  padding: 14px 32px;           /* a bit taller & wider => better alignment with hero */
+  box-sizing: border-box;
+  border-bottom: none;
+}
+
+/* Main nav row */
+#nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+/* ===== Brand (Velu Chits) ===== */
+
+.nav-brand .default-content-wrapper p {
+  margin: 0;
+}
+
+.nav-brand a {
+  text-decoration: none;
+  font-weight: 800;
+  font-size: 26px;              /* slightly bigger for premium feel */
+  color: #1f3ebf;
+  white-space: nowrap;
+}
+
+/* ===== Nav sections (links) ===== */
+
+.nav-sections {
+  flex: 1;
+}
+
+/* Desktop: links row */
+.nav-sections .default-content-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 28px;
+  margin: 0;
+}
+
+.nav-sections .button-container {
+  margin: 0;
+}
+
+/* Base link style */
+.header-wrapper .nav-sections .button {
+  position: relative;           /* for underline effect */
+  background: none !important;
+  border-radius: 0 !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  color: #333;                  /* stronger contrast */
+  text-decoration: none;
+  font-size: 17px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* Underline bar (hidden by default) */
+.header-wrapper .nav-sections .button::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0;
+  height: 2px;
+  background: #1f3ebf;
+  transition: width 0.18s ease-out;
+}
+
+/* Hover / focus / active = stronger, clearer */
+.header-wrapper .nav-sections .button:hover,
+.header-wrapper .nav-sections .button:focus-visible,
+.header-wrapper .nav-sections .button[aria-current="page"] {
+  color: #1f3ebf;
+}
+
+.header-wrapper .nav-sections .button:hover::after,
+.header-wrapper .nav-sections .button:focus-visible::after,
+.header-wrapper .nav-sections .button[aria-current="page"]::after {
+  width: 100%;
+}
+
+/* Tools (right side, currently unused) */
+.nav-tools {
+  margin-left: auto;
+}
+
+/* ===== Hamburger only for mobile ===== */
+.nav-hamburger {
+  display: none;
+}
+
+/* ===== Mobile / Tablet (<= 900px) ===== */
+@media (width <= 900px) {
+  .header-wrapper .nav-wrapper {
+    padding: 10px 16px;
+    border-bottom: none;
+  }
+
+  #nav {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .nav-brand {
+    order: 1;
+  }
+
+  .nav-hamburger {
+    display: block;
+    order: 2;
+    margin-left: auto;
+  }
+
+  .nav-sections {
+    order: 3;
+    width: 100%;
+  }
+
+  .nav-sections .default-content-wrapper {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 8px 0 12px;
+    background: #fff;
+    border-top: 1px solid #e0e0e0;
+    width: 100%;
+  }
+
+  .header-wrapper .nav-sections .button {
+    font-size: 16px;
+  }
+
+  .header-wrapper .nav-sections .button::after {
+    bottom: -2px;
+  }
+
+  /* Hide menu when collapsed */
+  #nav[aria-expanded="false"] .nav-sections {
+    display: none;
+  }
+
+  /* Show menu when expanded */
+  #nav[aria-expanded="true"] .nav-sections {
+    display: block;
+  }
+}

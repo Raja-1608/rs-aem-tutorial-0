@@ -1,0 +1,5 @@
+/* Placeholder so Franklin/AEM stops complaining about the block.
+   We add a harmless property so the linter is satisfied. */
+.footer-left.block {
+  border: 0; /* no visual change */
+}
