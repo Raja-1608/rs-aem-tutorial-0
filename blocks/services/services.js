@@ -1,24 +1,20 @@
 export default function decorate(block) {
   const rows = [...block.children];
-
   const titleRow = rows.shift();
-  const title = titleRow?.querySelector('h2');
 
-  const cardsWrapper = document.createElement('div');
-  cardsWrapper.className = 'services-grid';
+  const title = titleRow?.textContent;
+  const grid = document.createElement('div');
+  grid.className = 'services-grid';
 
   rows.forEach((row) => {
-    const card = document.createElement('div');
-    card.className = 'service-card';
-
-    [...row.children].forEach((el) => {
-      card.append(el);
+    [...row.children].forEach((cell) => {
+      const card = document.createElement('div');
+      card.className = 'service-card';
+      card.append(cell);
+      grid.append(card);
     });
-
-    cardsWrapper.append(card);
   });
 
-  block.innerHTML = '';
-  if (title) block.append(title);
-  block.append(cardsWrapper);
+  block.innerHTML = `<h2>${title}</h2>`;
+  block.append(grid);
 }

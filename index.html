@@ -5,7 +5,6 @@
     <title>VL Tech</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <!-- Global site styles -->
     <link rel="stylesheet" href="/styles/styles.css" />
   </head>
 
@@ -20,8 +19,8 @@
     <!-- ================= MAIN ================= -->
     <main>
       <!-- ================= HERO ================= -->
-      <section class="hero">
-        <div class="container">
+      <div class="hero">
+        <div>
           <h1>CLEAN HOMEPAGE ACTIVE</h1>
           <p>
             This page is now fully controlled by
@@ -29,19 +28,15 @@
             disabled.
           </p>
         </div>
-      </section>
+      </div>
 
-      <!-- ================= SERVICES (AEM EDGE BLOCK) ================= -->
-      <!-- This section is decorated by blocks/services/services.js -->
-      <section class="services">
-        <!-- Title row -->
+      <!-- ================= SERVICES (REAL AEM BLOCK) ================= -->
+      <!-- IMPORTANT: BLOCK MUST BE A DIV -->
+      <div class="services">
         <div>
-          <div>
-            <h2>Our Services</h2>
-          </div>
+          <div>Our Services</div>
         </div>
 
-        <!-- Cards rows -->
         <div>
           <div>
             <h3>Digital Strategy</h3>
@@ -58,7 +53,7 @@
             <p>Transform data into actionable insights.</p>
           </div>
         </div>
-      </section>
+      </div>
     </main>
 
     <!-- ================= FOOTER ================= -->
@@ -68,8 +63,7 @@
       </div>
     </footer>
 
-    <!-- ================= AEM EDGE / FRANKLIN RUNTIME ================= -->
-    <!-- This script is REQUIRED for block decoration -->
+    <!-- ================= FRANKLIN RUNTIME ================= -->
     <script src="/scripts/scripts.js" type="module"></script>
   </body>
 </html>
