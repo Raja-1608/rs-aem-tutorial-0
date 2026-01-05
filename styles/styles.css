@@ -1,334 +1,91 @@
-/*  Velu Chits main layout */
-
-.vc-page {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 1.5rem 4rem;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-}
-
-/* Full-width hero banner */
-.vc-hero-banner {
-  margin: 0 calc(50% - 50vw) 3rem;
-  height: 280px;
-  background-image: url("/icons/hero.png"); /* 🔁 change this path if your hero image is elsewhere */
-  background-size: cover;
-  background-position: center;
-  position: relative;
-  display: flex;
-  align-items: stretch;
-  justify-content: center;
-}
-
-.vc-hero-overlay {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  padding: 0 10%;
-  background: linear-gradient(
-    90deg,
-    rgba(0, 0, 0, 0.6),
-    rgba(0, 0, 0, 0.05)
-  );
+/* ===== RESET ===== */
+* {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 
-.vc-hero-overlay h1 {
-  max-width: 620px;
-  font-size: 2.6rem;
-  line-height: 1.2;
-  color: #fff;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.55);
-  margin: 0;
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  line-height: 1.6;
+  color: #111;
+  background: #fff;
 }
 
-/* Intro + rest of sections */
-
-.vc-section {
-  margin-bottom: 3rem;
-}
-
-.vc-section-intro h2 {
-  font-size: 1.8rem;
-}
-
-.vc-section h2 {
-  font-size: 1.6rem;
-  margin-bottom: 1rem;
-}
-
-.vc-grid {
-  list-style: none;
-  padding: 0;
-  margin: 1.5rem 0 0;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-  gap: 1.5rem;
-}
-
-.vc-grid li {
-  border-radius: 0.75rem;
-  padding: 1.5rem;
-  border: 1px solid #e0e0e0;
-}
-
-.vc-grid h3 {
-  margin-bottom: 0.5rem;
-  font-size: 1.1rem;
-}
-
-.vc-stats {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1.5rem;
-}
-
-.vc-stats > div {
-  min-width: 140px;
-  padding: 1rem 1.25rem;
-  border-radius: 0.75rem;
-  border: 1px dashed #d0d0d0;
-}
-
-.vc-stats strong {
-  display: block;
-  font-size: 1.5rem;
-  margin-bottom: 0.25rem;
-}
-
-/*  Velu Chits Header Styling */
-
-.vc-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 18px 52px;
-  background-color: #fff;
-  border-bottom: 1px solid #e5e5e5;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-}
-
-.vc-brand {
-  font-size: 1.8rem;
-  font-weight: 700;
-  letter-spacing: -0.5px;
-  color: #004aad;
-  text-decoration: none;
-  transition: opacity 0.2s ease;
-}
-
-.vc-brand:hover {
-  opacity: 0.85;
-}
-
-.vc-menu {
-  display: flex;
-  align-items: center;
-  gap: 36px;
-}
-
-.vc-menu-link {
-  font-weight: 600;
-  text-decoration: none;
-  color: #1c1c1c;
-  font-size: 1rem;
-  transition: color 0.2s ease;
-}
-
-.vc-menu-link:hover {
-  color: #004aad;
-  text-decoration: underline;
-}
-
-.vc-nav-toggle {
-  display: none;
-  font-size: 28px;
-  cursor: pointer;
-  background: none;
-  border: none;
-  padding: 0;
-}
-
-/* modern "context" media range syntax */
-@media (width <= 768px) {
-  .vc-hero-banner {
-    height: 220px;
-  }
-
-  .vc-hero-overlay {
-    padding: 0 1.5rem;
-    justify-content: center;
-  }
-
-  .vc-hero-overlay h1 {
-    font-size: 2rem;
-    text-align: center;
-  }
-
-  .vc-page {
-    padding: 0 1rem 3rem;
-  }
-
-  .vc-header {
-    padding: 14px 20px;
-  }
-
-  .vc-nav-toggle {
-    display: block;
-  }
-
-  .vc-menu {
-    position: absolute;
-    top: 64px;
-    right: 0;
-    width: 100%;
-    flex-direction: column;
-    background: #fff;
-    padding: 16px 20px;
-    border-top: 1px solid #ddd;
-    gap: 20px;
-    transform: translateY(-200%);
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.35s ease;
-  }
-
-  .vc-menu.open {
-    transform: translateY(0);
-    opacity: 1;
-    visibility: visible;
-  }
-
-  .vc-menu-link {
-    font-size: 1.1rem;
-    width: 100%;
-  }
-}
-
-/*  Velu Chits Footer Styling (dark design) */
-
-.vc-footer {
-  background: #242b33;
-  color: #fff;
-  padding: 3rem 1.5rem 2rem;
-}
-
-.vc-footer-inner {
-  max-width: 1200px;
-  margin: 0 auto 2rem;
-  display: grid;
-  grid-template-columns: minmax(0, 1.3fr) minmax(0, 1.5fr);
-  gap: 3rem;
-}
-
-.vc-footer-company h2 {
-  margin: 0 0 0.75rem;
-  font-size: 1.6rem;
-}
-
-.vc-footer-company p {
-  margin: 0 0 1.5rem;
-  max-width: 360px;
-  font-size: 0.95rem;
-}
-
-.vc-footer-contact-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: grid;
-  gap: 1rem;
-}
-
-.vc-footer-contact-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 0.75rem;
-  font-size: 0.95rem;
-}
-
-.vc-footer-icon {
-  width: 40px;
-  height: 40px;
-  border-radius: 999px;
-  background: #2f3844;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-}
-
-.vc-footer-icon span {
-  font-size: 1.1rem;
-}
-
-.vc-footer-contact-lines span {
-  display: block;
-}
-
-/* About column */
-
-.vc-footer-about h3 {
-  margin: 0 0 0.75rem;
-  font-size: 1.1rem;
-}
-
-.vc-footer-about p {
-  margin: 0 0 1.5rem;
-  font-size: 0.95rem;
-  max-width: 520px;
-}
-
-/* Social links (less specific selectors first) */
-
-.vc-footer-social {
-  display: flex;
-  gap: 0.75rem;
-}
-
-.vc-footer-social-link {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 38px;
-  height: 38px;
-  border-radius: 6px;
-  background: #2f3844;
-  color: #fff;
-  font-size: 0.9rem;
-  text-decoration: none;
-}
-
-.vc-footer-social-link:hover {
-  background: #3b4655;
-}
-
-/* Bottom bar */
-
-.vc-footer-bottom {
-  max-width: 1200px;
+/* ===== LAYOUT ===== */
+.container {
+  max-width: 1100px;
   margin: 0 auto;
-  padding-top: 0.75rem;
-  border-top: 1px solid #37414f;
-  font-size: 0.9rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 1rem;
+  padding: 0 24px;
 }
 
-/* Responsive footer */
+/* ===== HEADER ===== */
+.site-header {
+  border-bottom: 1px solid #e5e5e5;
+  padding: 16px 0;
+}
 
-@media (width <= 768px) {
-  .vc-footer-inner {
-    grid-template-columns: 1fr;
-  }
+.logo {
+  font-size: 22px;
+  font-weight: 700;
+}
 
-  .vc-footer-bottom {
-    flex-direction: column;
-    align-items: flex-start;
-  }
+/* ===== HERO ===== */
+.hero {
+  padding: 80px 0 60px;
+}
+
+.hero h1 {
+  color: #0a7a2f;
+  font-size: 36px;
+  margin-bottom: 12px;
+}
+
+.hero p {
+  max-width: 600px;
+  font-size: 16px;
+}
+
+/* ===== SERVICES ===== */
+.services {
+  padding: 60px 0;
+  background: #f8f9fb;
+}
+
+.section-title {
+  font-size: 28px;
+  margin-bottom: 32px;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 24px;
+}
+
+.service-card {
+  background: #fff;
+  padding: 24px;
+  border-radius: 12px;
+  border: 1px solid #e5e5e5;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.06);
+}
+
+.service-card h3 {
+  margin-bottom: 8px;
+  font-size: 18px;
+}
+
+/* ===== FOOTER ===== */
+.site-footer {
+  border-top: 1px solid #e5e5e5;
+  padding: 24px 0;
+  margin-top: 60px;
+  font-size: 14px;
 }
