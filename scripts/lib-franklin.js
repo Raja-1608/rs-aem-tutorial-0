@@ -4,7 +4,6 @@
  */
 
 export function decorateMain(main) {
-  // Mark every top-level div with a class as a block
   main.querySelectorAll(':scope > div[class]').forEach((block) => {
     const blockName = block.classList[0];
     block.classList.add('block');
@@ -25,17 +24,13 @@ export async function loadBlocks(main) {
         css.rel = 'stylesheet';
         css.href = `/blocks/${name}/${name}.css`;
         document.head.append(css);
-      } catch (e) {
-        /* no css */
-      }
+      } catch (e) {}
 
       // Load block JS
       try {
         const mod = await import(`/blocks/${name}/${name}.js`);
         if (mod.default) mod.default(block);
-      } catch (e) {
-        /* no js */
-      }
+      } catch (e) {}
     })
   );
 }
