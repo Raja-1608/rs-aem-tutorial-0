@@ -13,7 +13,7 @@ body {
 
 /* ================= HEADER / NAV ================= */
 .site-header {
-  background: #ffffff;
+  background: #fff;
   border-bottom: 1px solid #e5e5e5;
   position: relative;
   z-index: 100;
@@ -72,13 +72,13 @@ body {
   display: flex;
   align-items: center;
   padding-left: 80px;
-  background: rgba(0, 0, 0, 0.35);
+  background: rgb(0 0 0 / 35%);
 }
 
 /* HERO TEXT — reduced size */
 .hero h1 {
-  color: #ffffff;
-  font-size: 34px;   /* reduced from large */
+  color: #fff;
+  font-size: 34px;
   font-weight: 700;
   line-height: 1.25;
   max-width: 700px;
@@ -101,7 +101,7 @@ body {
 }
 
 .service-card {
-  background: #ffffff;
+  background: #fff;
   padding: 24px;
   border-radius: 14px;
   border: 1px solid #e5e5e5;
@@ -127,7 +127,7 @@ body {
 }
 
 .stat-card {
-  background: #ffffff;
+  background: #fff;
   padding: 40px;
   border-radius: 18px;
   text-align: center;
@@ -142,8 +142,8 @@ body {
 /* ================= FOOTER ================= */
 .site-footer {
   background: #151b23;
-  color: #ffffff;
-  padding: 100px 24px 80px; /* extra top space */
+  color: #fff;
+  padding: 100px 24px 80px;
 }
 
 .footer-wrapper {
