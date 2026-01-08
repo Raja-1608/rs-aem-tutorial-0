@@ -7,6 +7,11 @@
 
   <!-- Base styles -->
   <link rel="stylesheet" href="/styles/styles.css" />
+
+  <!-- Block styles -->
+  <link rel="stylesheet" href="/blocks/hero/hero.css" />
+  <link rel="stylesheet" href="/blocks/services/services.css" />
+  <link rel="stylesheet" href="/blocks/features/features.css" />
 </head>
 
 <body>
@@ -17,90 +22,117 @@
   <!-- ================= MAIN ================= -->
   <main>
 
-  <!-- ================= HERO ================= -->
-<section class="hero">
-  <div class="hero-content">
-    <h1>
-      Your&nbsp;Smart&nbsp;Savings&nbsp;Journey&nbsp;Starts&nbsp;Here
-    </h1>
-  </div>
+    <!-- ================= HERO ================= -->
+    <section class="hero">
+      <div class="hero-content">
+        <h1>
+          Your&nbsp;Smart&nbsp;Savings&nbsp;Journey&nbsp;Starts&nbsp;Here
+        </h1>
+      </div>
 
-  <picture>
-    <source
-      media="(min-width: 900px)"
-      srcset="https://valarnidhichits.com/css/images/banner3.jpg"
-      type="image/jpeg"
-    />
-    <img
-      src="https://valarnidhichits.com/css/images/banner3.jpg"
-      alt="Savings growth banner for Velu Chits"
-      loading="eager"
-    />
-  </picture>
-</section>
-<!-- ================= END HERO ================= -->
-
+      <picture>
+        <source
+          media="(min-width: 900px)"
+          srcset="https://valarnidhichits.com/css/images/banner3.jpg"
+          type="image/jpeg"
+        />
+        <img
+          src="https://valarnidhichits.com/css/images/banner3.jpg"
+          alt="Savings growth banner for Velu Chits"
+          loading="eager"
+        />
+      </picture>
+    </section>
+    <!-- ================= END HERO ================= -->
 
     <!-- ================= SERVICES ================= -->
     <section class="services">
-      <h2>Digital Strategy</h2>
+      <h2>Our Services</h2>
 
       <div class="services-grid">
-        <div class="service-card">
+        <article class="service-card">
           <h3>Cloud Engineering</h3>
-          <p>Scalable, secure cloud-native solutions.</p>
-        </div>
+          <p>
+            Scalable, secure cloud-native solutions designed to support
+            modern business growth.
+          </p>
+        </article>
 
-        <div class="service-card">
+        <article class="service-card">
           <h3>Data Intelligence</h3>
-          <p>Transform data into actionable insights.</p>
-        </div>
+          <p>
+            Transform data into actionable insights using analytics,
+            automation, and AI-driven strategies.
+          </p>
+        </article>
 
-        <div class="service-card">
+        <article class="service-card">
           <h3>Product Engineering</h3>
-          <p>Build reliable and scalable platforms.</p>
-        </div>
+          <p>
+            Build reliable, high-performance platforms with a focus on
+            quality, scalability, and speed.
+          </p>
+        </article>
       </div>
     </section>
     <!-- ================= END SERVICES ================= -->
 
     <!-- ================= FEATURES ================= -->
     <section class="features">
-      <div class="service-card">
-        <h3>Fast Delivery</h3>
-        <p>Optimized development cycles.</p>
+      <div class="features-header">
+        <h2>Why Choose Velu Chits</h2>
       </div>
 
-      <div class="service-card">
-        <h3>Modern Stack</h3>
-        <p>Cloud-native and scalable.</p>
-      </div>
+      <div class="features-grid">
+        <article class="feature-card">
+          <h3>Trusted & Secure</h3>
+          <p>
+            Built on transparency, compliance, and long-term customer trust.
+          </p>
+        </article>
 
-      <div class="service-card">
-        <h3>Enterprise Ready</h3>
-        <p>Built for growth.</p>
+        <article class="feature-card">
+          <h3>Flexible Chit Plans</h3>
+          <p>
+            Multiple savings plans designed to match different financial goals.
+          </p>
+        </article>
+
+        <article class="feature-card">
+          <h3>Customer First</h3>
+          <p>
+            Dedicated support and clear communication at every step.
+          </p>
+        </article>
       </div>
     </section>
     <!-- ================= END FEATURES ================= -->
 
-    <!-- ================= STATS ================= -->
-    <section class="stats">
-      <div class="stat-card">
-        <strong>10+</strong>
-        <p>YEARS EXPERIENCE</p>
-      </div>
+    <!-- ================= STATS SECTION ================= -->
+<section class="stats">
+  <div class="stats-inner">
+    <div class="stat-card">
+      <h3>50+</h3>
+      <p>Years of Experience</p>
+    </div>
 
-      <div class="stat-card">
-        <strong>50+</strong>
-        <p>PROJECTS DELIVERED</p>
-      </div>
+    <div class="stat-card">
+      <h3>10K+</h3>
+      <p>Happy Customers</p>
+    </div>
 
-      <div class="stat-card">
-        <strong>99%</strong>
-        <p>CLIENT SATISFACTION</p>
-      </div>
-    </section>
-    <!-- ================= END STATS ================= -->
+    <div class="stat-card">
+      <h3>100+</h3>
+      <p>Active Chit Plans</p>
+    </div>
+
+    <div class="stat-card">
+      <h3>99%</h3>
+      <p>Customer Trust</p>
+    </div>
+  </div>
+</section>
+<!-- ================= END STATS ================= -->
 
   </main>
 

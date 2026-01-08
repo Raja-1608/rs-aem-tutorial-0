@@ -1,43 +1,54 @@
+/* ================= FEATURES ================= */
+
+/* Reset any inherited grid/flex layout */
 .features {
-  padding: 40px 32px;
+  display: block;
+  padding: 64px 24px;
+  background-color: #f7f9fc;
+  box-sizing: border-box;
+}
+
+/* Centered section heading */
+.features-header {
+  text-align: center;
+  margin: 0 0 40px;
+}
+
+.features-header h2 {
+  margin: 0;
+  font-size: 2rem;
+}
+
+/* Feature cards grid */
+.features-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
   max-width: 1100px;
   margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 24px;
 }
 
-.features > div {
-  background-color: #f5f7fb;
-  border-radius: 10px;
-  padding: 20px 18px;
-  text-align: left;
+/* Feature card */
+.feature-card {
+  padding: 24px;
+  border-radius: 12px;
+  background-color: #fff;
+  box-sizing: border-box;
 }
 
-/* 1) General paragraph style FIRST */
-.features p {
+.feature-card h3 {
+  margin: 0 0 12px;
+  font-size: 1.25rem;
+}
+
+.feature-card p {
   margin: 0;
-  font-size: 14px;
   line-height: 1.6;
-  color: #444;
 }
 
-/* 2) Then the more specific first-child override */
-.features p:first-child {
-  font-size: 28px;  /* emoji icon */
-  margin-bottom: 8px;
-}
-
-.features h3 {
-  margin: 0 0 8px;
-  font-size: 18px;
-  font-weight: 700;
-  color: #1f3ebf;
-}
-
-@media (width <= 900px) {
-  .features {
-    grid-template-columns: 1fr;
-    padding: 28px 16px;
+/* Desktop */
+@media (width >= 900px) {
+  .features-grid {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
