@@ -1,7 +1,5 @@
 /* ================= STATS ================= */
-
-/* HARD RESET to escape inherited layouts */
-.stats {
+main > section.stats {
   display: block;
   width: 100%;
   background-color: #0f1720;
@@ -9,43 +7,38 @@
   box-sizing: border-box;
 }
 
-/* Centering wrapper */
-.stats-inner {
+main > section.stats .stats-inner {
   max-width: 1100px;
   margin-left: auto;
   margin-right: auto;
-
   display: grid;
   grid-template-columns: 1fr;
   gap: 32px;
-
   text-align: center;
 }
 
-/* Individual stat card */
-.stat-card {
-  background-color: #ffffff;
+main > section.stats .stat-card {
+  background-color: #fff;
   border-radius: 16px;
   padding: 32px 24px;
   box-sizing: border-box;
 }
 
-.stat-card h3 {
+main > section.stats .stat-card h3 {
   margin: 0 0 8px;
   font-size: 2.25rem;
   font-weight: 700;
-  color: #111111;
+  color: #111;
 }
 
-.stat-card p {
+main > section.stats .stat-card p {
   margin: 0;
   font-size: 1rem;
-  color: #444444;
+  color: #444;
 }
 
-/* Desktop layout */
 @media (width >= 900px) {
-  .stats-inner {
+  main > section.stats .stats-inner {
     grid-template-columns: repeat(4, 1fr);
   }
 }

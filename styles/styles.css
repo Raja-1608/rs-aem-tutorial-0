@@ -19,38 +19,6 @@ body {
   z-index: 100;
 }
 
-.nav-bar {
-  width: 100%;
-}
-
-.nav-inner {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px 24px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-/* LOGO — bigger & bolder */
-.nav-logo {
-  font-size: 30px;
-  font-weight: 800;
-  color: #0a47ff;
-  letter-spacing: 0.5px;
-}
-
-.nav-links {
-  display: flex;
-  gap: 32px;
-}
-
-.nav-links a {
-  text-decoration: none;
-  font-weight: 700;
-  color: #111;
-}
-
 /* ================= HERO ================= */
 .hero {
   position: relative;
@@ -58,15 +26,13 @@ body {
   overflow: hidden;
 }
 
-.hero picture,
 .hero img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-/* overlay + text */
-.hero > div {
+.hero-content {
   position: absolute;
   inset: 0;
   display: flex;
@@ -75,23 +41,41 @@ body {
   background: rgb(0 0 0 / 35%);
 }
 
-/* HERO TEXT — reduced size */
 .hero h1 {
   color: #fff;
   font-size: 34px;
-  font-weight: 700;
-  line-height: 1.25;
   max-width: 700px;
+}
+
+/* ================= ABOUT ================= */
+.about-section {
+  padding: 80px 24px;
+}
+
+.about-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  gap: 48px;
+  align-items: center;
+}
+
+.about-text {
+  flex: 1.2;
+}
+
+.about-image {
+  flex: 1;
+}
+
+.about-image img {
+  max-width: 100%;
+  display: block;
 }
 
 /* ================= SERVICES ================= */
 .services {
   padding: 80px 24px;
-}
-
-.services h2 {
-  font-size: 32px;
-  margin-bottom: 40px;
 }
 
 .services-grid {
@@ -100,30 +84,42 @@ body {
   gap: 24px;
 }
 
-.service-card {
+/* ================= FEATURES ================= */
+.features {
+  padding: 80px 24px;
+  background: #f6f9fc;
+}
+
+.features h2 {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.features-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.feature-card {
   background: #fff;
   padding: 24px;
   border-radius: 14px;
-  border: 1px solid #e5e5e5;
-}
-
-/* ================= FEATURES ================= */
-.features {
-  display: flex;
-  gap: 24px;
-  padding: 60px 24px;
-  background: #f6f9fc;
 }
 
 /* ================= STATS ================= */
 .stats {
-  display: flex;
-  gap: 24px;
   padding: 80px 24px;
   background: linear-gradient(135deg, #0b1220, #020617);
+}
 
-  /* SPACE BEFORE FOOTER */
-  margin-bottom: 80px;
+.stats-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  gap: 24px;
 }
 
 .stat-card {
@@ -136,7 +132,6 @@ body {
 
 .stat-card strong {
   font-size: 36px;
-  color: #111;
 }
 
 /* ================= FOOTER ================= */
@@ -146,41 +141,22 @@ body {
   padding: 100px 24px 80px;
 }
 
-.footer-wrapper {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  gap: 80px;
-}
+/* ================= MOBILE ================= */
+@media (max-width: 768px) {
+  .hero-content {
+    padding-left: 24px;
+  }
 
-.footer-left,
-.footer-right {
-  flex: 1;
-}
+  .about-wrapper {
+    flex-direction: column;
+  }
 
-.footer-left h2 {
-  margin-bottom: 24px;
-}
+  .services-grid,
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
 
-.footer-item {
-  display: flex;
-  gap: 16px;
-  margin-bottom: 18px;
-}
-
-.footer-right h3 {
-  margin-bottom: 20px;
-}
-
-.footer-social {
-  margin-top: 24px;
-  display: flex;
-  gap: 16px;
-}
-
-.footer-social span {
-  background: #1f2937;
-  padding: 12px 16px;
-  border-radius: 8px;
-  font-weight: 700;
+  .stats-inner {
+    flex-direction: column;
+  }
 }
