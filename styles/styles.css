@@ -1,6 +1,3 @@
-/* ================= HEADER BLOCK (REQUIRED FOR NAV TO WORK) ================= */
-@import url('/blocks/header/header.css');
-
 /* ========== RESET ========== */
 * {
   margin: 0;
@@ -15,59 +12,49 @@ body {
   line-height: 1.6;
 }
 
-/* ========== HEADER (JS Injected – DO NOT TOUCH HTML) ========== */
+/* ================= HEADER ======================= */
+/* Styles ONLY what actually exists: plain links inside site-header */
+
 .site-header {
-  position: relative;
-  z-index: 20;
-  border-bottom: 1px solid #e5e5e5;
-  background: #fff;
-}
-
-/* ========== HERO ========== */
-.hero {
-  position: relative;
-  height: 360px;
-  overflow: hidden;
-  z-index: 1;
-}
-
-/* image */
-.hero picture,
-.hero img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-/* overlay — EVEN GRADIENT */
-.hero::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.35);
-  z-index: 1;
-}
-
-/* hero text */
-.hero-content {
-  position: absolute;
-  inset: 0;
   display: flex;
   align-items: center;
-  justify-content: center;
-  z-index: 2;
+  flex-wrap: wrap;
+  gap: 18px;
+  padding: 14px 24px;
+  background: #fff;
+  border-bottom: 1px solid #e5e5e5;
 }
 
-.hero h1 {
-  color: #fff;
-  font-size: 34px;
-  text-align: center;
-  max-width: 900px;
-  padding: 0 16px;
+/* Brand (first link/text) */
+.site-header > *:first-child {
+  font-size: 26px;
+  font-weight: 800;
+  color: #1f3ebf;
+  white-space: nowrap;
 }
 
-/* ========== ABOUT ========== */
+/* Navigation links */
+.site-header a {
+  color: #111;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.site-header a:hover {
+  color: #1f3ebf;
+  text-decoration: underline;
+}
+
+/* ============= HERO (UNCHANGED) ============ */
+
+.hero {
+  position: relative;
+  overflow: hidden;
+}
+
+/* ================= ABOUT ============ */
+
 .about-section {
   padding: 40px 20px 50px;
 }
@@ -96,8 +83,7 @@ body {
   max-width: 420px;
 }
 
-/* Mobile: text first, image second */
-@media (max-width: 768px) {
+@media (width <= 768px) {
   .about-wrapper {
     grid-template-columns: 1fr;
   }
@@ -111,7 +97,8 @@ body {
   }
 }
 
-/* ========== SERVICES ========== */
+/* ================= SERVICES ============== */
+
 .services {
   padding: 50px 20px;
   text-align: center;
@@ -136,7 +123,8 @@ body {
   border-radius: 14px;
 }
 
-/* ========== FEATURES ========== */
+/* ================= FEATURES =================== */
+
 .features {
   background: #f6f9fc;
   padding: 80px 20px;
@@ -157,7 +145,8 @@ body {
   border-radius: 14px;
 }
 
-/* ========== STATS ========== */
+/* ================= STATS ===================== */
+
 .stats {
   background: linear-gradient(135deg, #0b1220, #020617);
   padding: 70px 20px;
@@ -184,7 +173,8 @@ body {
   display: block;
 }
 
-/* ========== FOOTER (JS Injected) ========== */
+/* ================= FOOTER =================== */
+
 .site-footer {
   background: #151b23;
   color: #fff;

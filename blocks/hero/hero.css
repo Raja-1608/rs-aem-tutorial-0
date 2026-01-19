@@ -1,5 +1,4 @@
 /* ================= HERO ================= */
-
 .hero {
   position: relative;
   min-height: 260px;
@@ -46,7 +45,7 @@
   width: 100%;
 }
 
-/* Text — mobile default (wrap allowed) */
+/* Text — mobile default */
 .hero-content h1 {
   margin: 0;
   color: #fff;
@@ -55,13 +54,12 @@
   line-height: 1.2;
   white-space: normal;
   max-width: none;
-
   text-shadow:
     0 3px 6px rgb(0 0 0 / 55%),
     0 10px 24px rgb(0 0 0 / 70%);
 }
 
-/* Desktop — FORCE SINGLE LINE */
+/* Desktop — single line */
 @media (width >= 900px) {
   .hero {
     min-height: 320px;
