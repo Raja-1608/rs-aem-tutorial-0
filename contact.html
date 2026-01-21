@@ -22,11 +22,10 @@
       </nav>
     </div>
   </header>
-  <!-- ================= END HEADER ================= -->
 
   <main>
 
-    <!-- ================= PAGE HERO (INNER PAGE) ================= -->
+    <!-- ================= PAGE HERO ================= -->
     <section class="hero">
       <div class="hero-content">
         <h1>Contact Us</h1>
@@ -39,49 +38,97 @@
 
     <!-- ================= CONTACT SECTION ================= -->
     <section class="about-section">
-      <div class="about-wrapper">
+      <div
+        class="about-wrapper"
+        style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px;"
+      >
 
-        <!-- Contact Details -->
-        <div class="about-text">
-          <h2>Get in Touch</h2>
-          <p>
-            We’re here to help you with enquiries about chit plans, memberships,
-            and general support. Reach out to us using the details below.
+        <!-- LEFT CARD : CONTACT INFO -->
+        <div
+          style="
+            background: #1e6a6f;
+            color: #fff;
+            padding: 40px;
+            border-radius: 16px;
+          "
+        >
+          <h2 style="margin-bottom: 16px;">Contact Information</h2>
+          <p style="margin-bottom: 24px;">
+            If you have any enquiries regarding chit plans, memberships,
+            or general support, feel free to reach out to us. Our team
+            will assist you as soon as possible.
           </p>
 
-          <div class="footer-item">
-            <span>📍</span>
-            <p>
-              RS Tower, Raja Nagar<br />
-              Chennai, Tamil Nadu<br />
-              India
-            </p>
-          </div>
+          <p style="margin-bottom: 12px;">📍 RS Tower, Raja Nagar</p>
+          <p style="margin-bottom: 12px;">Chennai, Tamil Nadu</p>
+          <p style="margin-bottom: 24px;">India</p>
 
-          <div class="footer-item">
-            <span>📞</span>
-            <p>+91 98765 43210</p>
-          </div>
-
-          <div class="footer-item">
-            <span>✉️</span>
-            <p>
-              <a href="mailto:support@veluchit.com">support@veluchit.com</a>
-            </p>
-          </div>
-
+          <p style="margin-bottom: 12px;">📞 +91 98765 43210</p>
           <p>
-            Office Hours:<br />
-            Monday – Saturday: 9:30 AM – 6:30 PM
+            ✉️
+            <a
+              href="mailto:support@veluchit.com"
+              style="color: #cceff2; text-decoration: none;"
+            >
+              support@veluchit.com
+            </a>
           </p>
         </div>
 
-        <!-- Optional Visual -->
-        <div class="about-image">
-          <img
-            src="https://ettutharayil.com/img/chit.png"
-            alt="Velu Chits Contact"
-          />
+        <!-- RIGHT CARD : FORM -->
+        <div
+          style="
+            background: #fff;
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgb(0 0 0 / 8%);
+          "
+        >
+          <h2 style="margin-bottom: 16px;">Get Started Now</h2>
+          <p style="margin-bottom: 24px;">
+            Your message helps us understand your needs better. Please
+            fill out the form below and our team will get back to you.
+          </p>
+
+          <form>
+            <input
+              type="text"
+              placeholder="Your Name"
+              style="width: 100%; padding: 14px; margin-bottom: 14px;"
+            />
+
+            <input
+              type="tel"
+              placeholder="Phone Number"
+              style="width: 100%; padding: 14px; margin-bottom: 14px;"
+            />
+
+            <input
+              type="email"
+              placeholder="Email Address"
+              style="width: 100%; padding: 14px; margin-bottom: 14px;"
+            />
+
+            <textarea
+              placeholder="Your Message"
+              rows="4"
+              style="width: 100%; padding: 14px; margin-bottom: 20px;"
+            ></textarea>
+
+            <button
+              type="submit"
+              style="
+                background: #1e6a6f;
+                color: #fff;
+                border: none;
+                padding: 12px 28px;
+                border-radius: 24px;
+                cursor: pointer;
+              "
+            >
+              Submit →
+            </button>
+          </form>
         </div>
 
       </div>
@@ -90,7 +137,7 @@
   </main>
 
   <!-- ================= FOOTER ================= -->
-  <footer class="site-footer">
+<footer class="site-footer">
     <div class="footer-inner">
 
       <div class="footer-left">
@@ -139,7 +186,5 @@
       © Velu Chits. All rights reserved.
     </div>
   </footer>
-  <!-- ================= END FOOTER ================= -->
-
 </body>
 </html>
