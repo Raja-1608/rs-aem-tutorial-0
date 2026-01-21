@@ -50,7 +50,7 @@ body {
   color: #1f3ebf;
 }
 
-/* ===== HERO ===== */
+/* ===== HERO (HOME) ===== */
 .hero {
   position: relative;
   height: 360px;
@@ -83,6 +83,41 @@ body {
   font-size: 34px;
   text-align: center;
   padding: 0 16px;
+}
+
+/* ===== PAGE HERO (SERVICES / ABOUT / CONTACT) ===== */
+.page-hero {
+  position: relative;
+  min-height: 280px;
+  display: flex;
+  align-items: center;
+  background-image:
+    linear-gradient(
+      rgb(0 0 0 / 55%),
+      rgb(0 0 0 / 55%)
+    ),
+    url("https://imagedelivery.net/K11gkZF3xaVyYzFESMdWIQ/420c5cdf-53f4-4ab1-3d3e-8bb38942a900/full");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.page-hero .container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 60px 20px;
+}
+
+.page-hero h1 {
+  color: #fff;
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+.page-hero p {
+  color: #f0f0f0;
+  max-width: 720px;
+  font-size: 18px;
 }
 
 /* ===== ABOUT ===== */
@@ -129,7 +164,6 @@ body {
 .stats {
   background: linear-gradient(135deg, #0b1220, #020617);
   padding: 70px 20px;
-
   margin-bottom: 80px;
 }
 
@@ -212,5 +246,9 @@ body {
 
   .stats-inner {
     flex-direction: column;
+  }
+
+  .page-hero h1 {
+    font-size: 28px;
   }
 }
