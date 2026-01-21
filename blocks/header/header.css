@@ -18,12 +18,10 @@
   justify-content: space-between;
 }
 
-.site-header .nav-brand a {
+.site-header .nav-brand {
   font-size: 26px;
   font-weight: 800;
   color: #1f3ebf;
-  text-decoration: none;
-  white-space: nowrap;
 }
 
 .site-header .nav-sections ul {

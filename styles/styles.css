@@ -1,4 +1,4 @@
-/* ========== RESET ========== */
+/* ===== RESET ===== */
 * {
   margin: 0;
   padding: 0;
@@ -8,55 +8,86 @@
 body {
   font-family: Georgia, serif;
   color: #111;
-  background: #fff;
   line-height: 1.6;
 }
 
-/* ================= HEADER ======================= */
-/* Styles ONLY what actually exists: plain links inside site-header */
-
+/* ===== HEADER ===== */
 .site-header {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 18px;
-  padding: 14px 24px;
+  position: sticky;
+  top: 0;
   background: #fff;
   border-bottom: 1px solid #e5e5e5;
+  z-index: 100;
 }
 
-/* Brand (first link/text) */
-.site-header > *:first-child {
+.header-inner {
+  max-width: 1200px;
+  margin: auto;
+  padding: 16px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.brand {
   font-size: 26px;
   font-weight: 800;
   color: #1f3ebf;
-  white-space: nowrap;
 }
 
-/* Navigation links */
-.site-header a {
-  color: #111;
+.nav {
+  display: flex;
+  gap: 24px;
+}
+
+.nav a {
   text-decoration: none;
-  font-size: 16px;
   font-weight: 600;
+  color: #111;
 }
 
-.site-header a:hover {
+.nav a:hover {
   color: #1f3ebf;
-  text-decoration: underline;
 }
 
-/* ============= HERO (UNCHANGED) ============ */
-
+/* ===== HERO ===== */
 .hero {
   position: relative;
+  height: 360px;
   overflow: hidden;
 }
 
-/* ================= ABOUT ============ */
+.hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgb(0 0 0 / 35%);
+}
+
+.hero-content {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero h1 {
+  color: #fff;
+  font-size: 34px;
+  text-align: center;
+  padding: 0 16px;
+}
+
+/* ===== ABOUT ===== */
 .about-section {
-  padding: 40px 20px 50px;
+  padding: 50px 20px;
 }
 
 .about-wrapper {
@@ -68,45 +99,15 @@ body {
   align-items: center;
 }
 
-.about-section h2 {
-  font-size: 34px;
-  margin-bottom: 16px;
-}
-
-.about-section p {
-  margin-bottom: 14px;
-  max-width: 520px;
-}
-
 .about-image img {
-  width: 100%;
   max-width: 420px;
+  width: 100%;
 }
 
-@media (width <= 768px) {
-  .about-wrapper {
-    grid-template-columns: 1fr;
-  }
-
-  .about-image {
-    order: 2;
-  }
-
-  .about-text {
-    order: 1;
-  }
-}
-
-/* ================= SERVICES ============== */
-
+/* ===== SERVICES ===== */
 .services {
-  padding: 50px 20px;
+  padding: 60px 20px;
   text-align: center;
-}
-
-.services h2 {
-  font-size: 32px;
-  margin-bottom: 36px;
 }
 
 .services-grid {
@@ -118,38 +119,17 @@ body {
 }
 
 .service-card {
-  padding: 30px;
-  border: 1px solid #e5e5e5;
-  border-radius: 14px;
-}
-
-/* ================= FEATURES =================== */
-
-.features {
-  background: #f6f9fc;
-  padding: 80px 20px;
-  text-align: center;
-}
-
-.features-grid {
-  max-width: 1200px;
-  margin: auto;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-}
-
-.feature-card {
   background: #fff;
+  border-radius: 16px;
   padding: 30px;
-  border-radius: 14px;
+  box-shadow: 0 10px 30px rgb(0 0 0 / 8%);
 }
 
-/* ================= STATS ===================== */
-
+/* ===== STATS ===== */
 .stats {
   background: linear-gradient(135deg, #0b1220, #020617);
   padding: 70px 20px;
+
   margin-bottom: 80px;
 }
 
@@ -170,13 +150,67 @@ body {
 
 .stat-card strong {
   font-size: 34px;
-  display: block;
 }
 
-/* ================= FOOTER =================== */
-
+/* ===== FOOTER ===== */
 .site-footer {
-  background: #151b23;
+  background: #1e242b;
   color: #fff;
-  padding: 80px 20px;
+}
+
+.footer-inner {
+  max-width: 1200px;
+  margin: auto;
+  padding: 70px 20px;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 80px;
+}
+
+.footer-item {
+  display: flex;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+.footer-item a {
+  color: #4da3ff;
+  text-decoration: none;
+}
+
+.social-icons {
+  display: flex;
+  gap: 14px;
+}
+
+.social-icons a {
+  width: 42px;
+  height: 42px;
+  background: #2a3038;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  text-decoration: none;
+}
+
+.footer-bottom {
+  background: #151a20;
+  text-align: center;
+  padding: 18px;
+  font-size: 14px;
+  opacity: 0.85;
+}
+
+/* ===== MOBILE ===== */
+@media (width <= 768px) {
+  .about-wrapper,
+  .footer-inner {
+    grid-template-columns: 1fr;
+  }
+
+  .stats-inner {
+    flex-direction: column;
+  }
 }
