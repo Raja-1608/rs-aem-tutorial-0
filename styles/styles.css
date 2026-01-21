@@ -41,14 +41,11 @@ body {
   gap: 24px;
 }
 
+/* ===== ALL BASE ANCHORS FIRST ===== */
 .nav a {
   text-decoration: none;
   font-weight: 600;
   color: #111;
-}
-
-.nav a:hover {
-  color: #1f3ebf;
 }
 
 /* ================= HERO ================= */
@@ -173,17 +170,12 @@ body {
   margin-bottom: 18px;
 }
 
-/* ---- FOOTER LINKS (ORDER FIXED) ---- */
+/* ===== FOOTER LINKS (BASE FIRST) ===== */
 .footer-item a {
   color: #4da3ff;
   text-decoration: none;
 }
 
-.footer-item a:hover {
-  text-decoration: underline;
-}
-
-/* ---- SOCIAL ICONS (ORDER FIXED) ---- */
 .social-icons {
   display: flex;
   gap: 14px;
@@ -201,16 +193,25 @@ body {
   text-decoration: none;
 }
 
-.social-icons a:hover {
-  background: #3a414a;
-}
-
 .footer-bottom {
   background: #151a20;
   text-align: center;
   padding: 18px;
   font-size: 14px;
   opacity: 0.85;
+}
+
+/* ================= HOVER STATES (ALWAYS LAST) ================= */
+.nav a:hover {
+  color: #1f3ebf;
+}
+
+.footer-item a:hover {
+  text-decoration: underline;
+}
+
+.social-icons a:hover {
+  background: #3a414a;
 }
 
 /* ================= MOBILE ================= */
